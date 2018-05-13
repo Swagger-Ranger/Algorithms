@@ -1,4 +1,4 @@
-package lwx425876.chapter1;
+package io_lib;
 
 /******************************************************************************
  *  Compilation:  javac StdRandom.java
