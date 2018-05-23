@@ -1,4 +1,4 @@
-package io_lib;
+package algs4_lib;
 /******************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut

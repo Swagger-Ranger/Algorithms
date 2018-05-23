@@ -1,7 +1,8 @@
 package lwx425876.chapter1;
 
-import io_lib.StdIn;
-import io_lib.StdOut;
+import algs4_lib.Counter;
+import algs4_lib.StdIn;
+import algs4_lib.StdOut;
 
 public class Tast_chapter1 {
 	
@@ -160,6 +161,19 @@ public class Tast_chapter1 {
     }
 //	brilliant
     /////
+    
+    public static double binomial(int n, int k, double p, Counter c) {
+
+            if (n == 0 && k == 0) return 1.0;
+            if (n < 0 || k < 0) return 0.0;
+            
+            c.increment();
+            
+            return (1.0 - p) * binomial(n-1, k, p, c) + p * binomial(n-1, k-1, p, c);
+        
+    }
+    
+    
     
     
 	public static void main(String[] args) {
