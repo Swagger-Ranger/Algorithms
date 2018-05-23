@@ -49,19 +49,6 @@ package algs4_lib;
  ******************************************************************************/
 
 
-/**
- *  <i>Standard array IO</i>. This class provides methods for reading
- *  in 1D and 2D arrays from standard input and printing out to 
- *  standard output.
- *  <p>
- *  For additional documentation, see
- *  <a href="https://introcs.cs.princeton.edu/22libary">Section 2.2</a> of
- *  <i>Computer Science: An Interdisciplinary Approach</i>
- *  by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- */
 public class StdArrayIO {
 
     // it doesn't make sense to instantiate this class
