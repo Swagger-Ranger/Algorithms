@@ -36,6 +36,7 @@ public class Binomial {
         {
             c.increment();
             v[n][k] = (1.0 - p) * binomial(v, n-1, k, p, c) + p * binomial(v, n-1, k-1, p, c);
+            //n次事件，发生k次=发生*(n-1次中不发生）+不发生*（n-1次中发生）
         }
         
         return v[n][k];
@@ -46,7 +47,7 @@ public class Binomial {
         int n = StdIn.readInt();
         int k = StdIn.readInt();
         double p = StdIn.readDouble();
-        
+
 //    	int n = Integer.parseInt(args[0]),
 //                k = Integer.parseInt(args[1]);
 //            double p = Double.parseDouble(args[2]);
