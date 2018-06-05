@@ -8,7 +8,7 @@
  *Achin
  *2018年5月13日
  */
-package io_lib;
+package algs4_lib;
 
 /*§	程序	描述/ JAVADOC
 1.5	StdIn.java	从标准输入中读取数字和文字
