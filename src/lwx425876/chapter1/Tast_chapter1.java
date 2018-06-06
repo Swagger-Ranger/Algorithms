@@ -3,6 +3,7 @@ package lwx425876.chapter1;
 import algs4_lib.Counter;
 import algs4_lib.StdIn;
 import algs4_lib.StdOut;
+import algs4_lib.StdRandom;
 
 public class Tast_chapter1 {
 	
@@ -189,7 +190,26 @@ public class Tast_chapter1 {
 		System.out.println(_18_2(2, 25));
 		System.out.println(_18_2(3, 11));
 		System.out.println(_18_2(a, b) == Math.pow(a, b));*/
-		
+
+		int n = 6;
+		int SIDES = 6;
+
+		// initialize counters
+		Counter[] rolls = new Counter[SIDES+1];
+		for (int i = 1; i <= SIDES; i++) {
+			rolls[i] = new Counter(i + "s");
+		}
+
+		// flip dice
+		for (int j = 0; j < n; j++) {
+			int result = StdRandom.uniform(1, SIDES+1);
+			rolls[result].increment();
+		}
+
+		// print results
+		for (int i = 1; i <= SIDES; i++) {
+			StdOut.println(rolls[i]);
+		}
 		
 	}
 	
