@@ -1,4 +1,4 @@
-package lwx425876.chapter1;
+package lwx425876.chapter1.chapter1_1;
 
 import algs4_lib.StdRandom;
 
