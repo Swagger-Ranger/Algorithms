@@ -8,5 +8,5 @@ public class Page13_calculation {
 		else       return x;
 	}
 	
-	
+	static int ID = 1;
 }
