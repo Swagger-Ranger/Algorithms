@@ -1,4 +1,4 @@
-package lwx425876.chapter1.chapter1_2;
+package lwx425876_chapter1.chapter1_2;
 /*************************************************************************
  *  Compilation:  javac Point2D.java
  *
