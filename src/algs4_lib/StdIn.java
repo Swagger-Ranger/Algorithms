@@ -7,6 +7,12 @@ package algs4_lib;
  *
  *  Reads in data of various types from standard input.
  *
+ * 这个类实际是使用Scanner作为（sacnner：一个简单的文本扫描程序，可以使用正则表达式解析基本类型和字符串。
+ * A Scanner使用分隔符模式将其输入分解为标记，分隔符模式默认匹配空格。然后可以使用各种next方法将得到的标记转换为不同类型的值）输入控制
+ * scanner的构造函数是可以输入一个文件对象的，同时也可以使用 < 来直接向scanner中输入；
+ * 然后再使用正则表达式来对scanner.next的对象进行解析成各种类型数组
+ *
+ *
  ******************************************************************************/
 
 import java.util.ArrayList;
