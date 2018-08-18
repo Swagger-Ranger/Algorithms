@@ -60,7 +60,7 @@ public class InsertionX {
                 exchanges++;
             }
         }
-        if (exchanges == 0) return;
+        if (exchanges == 0) return; //如果没有经过交换则证明已经排好序，直接退出
 
 
         // insertion sort with half-exchanges 不作交换，而是将类似于选择排序的从右边逐步的插入左边
@@ -68,7 +68,7 @@ public class InsertionX {
             Comparable v = a[i];
             int j = i;
             while (less(v, a[j-1])) {
-                a[j] = a[j-1];
+                a[j] = a[j-1];  //遇到更小的则将之前的数往后移一位（最后一个数保存在v里面，这样实际上就是只做一次交换避免每次都交换）
                 j--;
             }
             a[j] = v;

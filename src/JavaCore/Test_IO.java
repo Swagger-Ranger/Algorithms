@@ -79,10 +79,10 @@ public class Test_IO {
         FileInputStream fileinput = null;
         FileOutputStream fileoutput = null;
 
-        byte[] by = new byte[1024*10];
+        byte[] by = new byte[1024*10];  //缓冲区的大小
 
         try {
-            fileoutput =new FileOutputStream("./TestIO.ncm");//可以穿个file文件对象，但这里直接些路经，java会自动创建
+            fileoutput =new FileOutputStream("./TestIO.ncm");//可以传个file文件对象，但这里直接些路经，java会自动创建
             for (int i = 0; i < files.length; i++) {
                 fileinput = new FileInputStream(files[i]);
                 int count =0;
