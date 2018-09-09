@@ -25,7 +25,7 @@ public class Fibonacci_2_0 {
 
     private static long Fib(int N, long[] f) {
 
-        if (f[N] == 0) {
+        if (f[N] == 0) {        //这里使用了数组最后的一个数来作为判断，
             if (N == 1) {
                 f[N] = 1;
             }

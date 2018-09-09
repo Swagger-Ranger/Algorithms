@@ -1,6 +1,6 @@
 package mylib.Sortion;
 
-import mylib.MyStdIn;
+import mylib.FileStdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -93,8 +93,8 @@ public class Sort_quick3way {
     public static void main(String[] args) throws FileNotFoundException {
         String str ="C:\\Swagger-Ranger\\algs4_github_fork\\AlgorithmsSedgewick\\2-Sorting\\2-1-ElementarySorts\\tiny" +
                 ".txt";
-        MyStdIn.setScanner(str);
-        String[] a = MyStdIn.readAllStrings();
+        FileStdIn.setScanner(str);
+        String[] a = FileStdIn.readAllStrings();
 
         System.out.println(Arrays.toString(a));
         Sort_quick3way.sort(a);
