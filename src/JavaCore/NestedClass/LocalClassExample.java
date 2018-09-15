@@ -1,6 +1,9 @@
 package JavaCore.NestedClass;
 
-
+/*
+* 方法内部定义一个方法内的类，本地类
+*
+* */
 public class LocalClassExample {
 
     static String regularExpression = "[^0-9]";     //^非数字

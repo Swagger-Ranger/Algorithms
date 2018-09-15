@@ -23,6 +23,8 @@ package lwx425876.Chapter3.chapter3_5; /****************************************
  *
  *  % java FileIndex *.java
  *
+ *  为文件建立反向索引，文件中出现过某字符的文件列表
+ *
  *************************************************************************/
 
 import algs4_lib.In;
@@ -40,21 +42,21 @@ public class FileIndex {
 
         // create inverted index of all files
         StdOut.println("Indexing files");
-        for (String filename : args) {
+        for (String filename : args) {      //依次扫描文件内容建立符号表
             StdOut.println("  " + filename);
             File file = new File(filename);
             In in = new In(file);
             while (!in.isEmpty()) {
                 String word = in.readString();
-                if (!st.contains(word)) st.put(word, new SET<File>());
-                SET<File> set = st.get(word);
+                if (!st.contains(word)) st.put(word, new SET<File>());//不包含的单词就在表里新建集合
+                SET<File> set = st.get(word);   //获取到那个集合，将对应的文件元素添加进去
                 set.add(file);
             }
         }
 
 
         // read queries from standard input, one per line
-        while (!StdIn.isEmpty()) {
+        while (!StdIn.isEmpty()) {          //出stdIO中接收查询字符串打印结果
             String query = StdIn.readString();
             if (st.contains(query)) {
                 SET<File> set = st.get(query);

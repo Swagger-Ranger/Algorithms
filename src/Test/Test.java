@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Test {
 
+
     public static int strStr(String source, String target) {
         // Write your code here
         int location = -1;

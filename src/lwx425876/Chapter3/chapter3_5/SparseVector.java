@@ -19,7 +19,8 @@ public class SparseVector {
     // initialize the all 0s vector of length N
     public SparseVector(int N) {
         this.N  = N;
-        this.st = new ST<Integer, Double>();
+//        this.st = new ST<Integer, Double>();
+        this.st = new ST<>();
     }
 
     // put st[i] = value
