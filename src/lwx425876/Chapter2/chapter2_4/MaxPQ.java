@@ -18,6 +18,7 @@ package lwx425876.Chapter2.chapter2_4;
  *  Can be optimized by replacing full exchanges with half exchanges
  *  (ala insertion sort).
  *
+ *  和MinPQ基本一致，只需要将比较器的方向改一下
  ******************************************************************************/
 
 import algs4_lib.StdIn;
@@ -27,28 +28,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- *  The {@code MaxPQ} class represents a priority queue of generic keys.
- *  It supports the usual <em>insert</em> and <em>delete-the-maximum</em>
- *  operations, along with methods for peeking at the maximum key,
- *  testing if the priority queue is empty, and iterating through
- *  the keys.
- *  <p>
- *  This implementation uses a binary heap.
- *  The <em>insert</em> and <em>delete-the-maximum</em> operations take
- *  logarithmic amortized time.
- *  The <em>max</em>, <em>size</em>, and <em>is-empty</em> operations take constant time.
- *  Construction takes time proportional to the specified capacity or the number of
- *  items used to initialize the data structure.
- *  <p>
- *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- *
- *  @param <Key> the generic type of key on this priority queue
- */
 
 public class MaxPQ<Key> implements Iterable<Key> {
     private Key[] pq;                    // store items at indices 1 to n

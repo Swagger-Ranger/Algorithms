@@ -9,7 +9,10 @@ import algs4_lib.StdOut;
  *  Dependencies: StdIn.java StdOut.java
  *
  *  Quick-union algorithm.
- *
+ *  背景参见 QuickFindUF:本方法和QuickFindUF基于相同的数据结构（以节点为索引的数组）来处理，但方法互补，一个find快，这个则union快
+ *  方法：将数组的值表示为更复杂的结构，数组的值是与之相联通的节点的节点数组引用--其中理解find方法是关键
+ *  优点：union是常数级别的
+ *  缺点：如果出现小分量归并到大分量中时仍然会出现find的操作n^2的情况
  ****************************************************************************/
 
 public class QuickUnionUF {
@@ -31,9 +34,9 @@ public class QuickUnionUF {
     }
 
     // return root of component corresponding to element p
-    public int find(int p) {
+    public int find(int p) {    //这个是算法的关键实现--可以通过union的实现保证最后一定会返回到初始节点自身上也就是对应的分量
         while (p != id[p])
-            p = id[p];
+            p = id[p];      //最后的P一定是根节点的值也就是分量（数组的值），因为分量中的所有元素相连接，只有根节点的链接是指向自身的环
         return p;
     }
 

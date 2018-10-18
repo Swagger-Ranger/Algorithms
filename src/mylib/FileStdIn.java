@@ -15,7 +15,6 @@ package mylib;
  *
  ******************************************************************************/
 
-import algs4_lib.In;
 import algs4_lib.StdOut;
 
 import java.io.File;
@@ -23,7 +22,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.regex.Pattern;
 
-public final class MyStdIn {
+public final class FileStdIn {
 
 
     // assume Unicode UTF-8 encoding
@@ -47,7 +46,7 @@ public final class MyStdIn {
     private static Scanner scanner;
 
     // it doesn't make sense to instantiate this class
-    private MyStdIn() { }
+    private FileStdIn() { }
 
     //// begin: section (2 of 2) of code duplicated from In to StdIn,
     //// with all methods changed from "public" to "public static"
@@ -268,8 +267,8 @@ public final class MyStdIn {
     }
     
     private static void setScanner(Scanner scanner) {
-        MyStdIn.scanner = scanner;
-        MyStdIn.scanner.useLocale(LOCALE);
+        FileStdIn.scanner = scanner;
+        FileStdIn.scanner.useLocale(LOCALE);
     }
 
 
@@ -277,8 +276,8 @@ public final class MyStdIn {
     public static void setScanner(String str) throws FileNotFoundException {
         File file = new File(str);
         Scanner scanner = new Scanner(file);
-        MyStdIn.scanner = scanner;
-        MyStdIn.scanner.useLocale(LOCALE);
+        FileStdIn.scanner = scanner;
+        FileStdIn.scanner.useLocale(LOCALE);
     }
 
     @Deprecated
@@ -300,22 +299,22 @@ public final class MyStdIn {
     public static void main(String[] args) {
 
         StdOut.print("Type a string: ");
-        String s = MyStdIn.readString();
+        String s = FileStdIn.readString();
         StdOut.println("Your string was: " + s);
         StdOut.println();
 
         StdOut.print("Type an int: ");
-        int a = MyStdIn.readInt();
+        int a = FileStdIn.readInt();
         StdOut.println("Your int was: " + a);
         StdOut.println();
 
         StdOut.print("Type a boolean: ");
-        boolean b = MyStdIn.readBoolean();
+        boolean b = FileStdIn.readBoolean();
         StdOut.println("Your boolean was: " + b);
         StdOut.println();
 
         StdOut.print("Type a double: ");
-        double c = MyStdIn.readDouble();
+        double c = FileStdIn.readDouble();
         StdOut.println("Your double was: " + c);
         StdOut.println();
     }

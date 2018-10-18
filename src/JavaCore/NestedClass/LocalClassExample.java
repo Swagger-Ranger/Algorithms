@@ -1,9 +1,12 @@
 package JavaCore.NestedClass;
 
-
+/*
+* 方法内部定义一个方法内的类，本地类
+*
+* */
 public class LocalClassExample {
 
-    static String regularExpression = "[^0-9]";
+    static String regularExpression = "[^0-9]";     //^非数字
 
     public static void validatePhoneNumber(
             String phoneNumber1, String phoneNumber2) {
@@ -21,7 +24,7 @@ public class LocalClassExample {
             PhoneNumber(String phoneNumber){
                 // numberLength = 7;
                 String currentNumber = phoneNumber.replaceAll(
-                        regularExpression, "");
+                        regularExpression, "");     //删除掉非数字的字符
                 if (currentNumber.length() == numberLength)
                     formattedPhoneNumber = currentNumber;
                 else

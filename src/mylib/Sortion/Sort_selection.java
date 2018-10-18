@@ -1,6 +1,6 @@
 package mylib.Sortion;
 
-import mylib.MyStdIn;
+import mylib.FileStdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -90,11 +90,11 @@ public class Sort_selection {
         String str ="C:\\Swagger-Ranger\\algs4_github_fork\\AlgorithmsSedgewick\\2-Sorting\\2-1-ElementarySorts\\tiny" +
                 ".txt";
         try {
-            MyStdIn.setScanner(str);
+            FileStdIn.setScanner(str);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String[] a = MyStdIn.readAllStrings();
+        String[] a = FileStdIn.readAllStrings();
         System.out.println(Arrays.toString(a));
         Sort_selection.sort(a);
         System.out.println(isSorted(a));

@@ -23,6 +23,8 @@ package lwx425876.Chapter2.chapter2_4;
  *  % java Multiway m1.txt m2.txt m3.txt
  *  A A B B B C D E F F G H I I J N P Q Q Z
  *
+ *  使用索引堆，将多个输入流放到一个数组中作为参数传到索引堆里
+ *
  ******************************************************************************/
 
 import algs4_lib.In;

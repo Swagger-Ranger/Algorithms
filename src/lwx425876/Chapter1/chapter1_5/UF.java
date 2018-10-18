@@ -21,6 +21,9 @@ package lwx425876.Chapter1.chapter1_5;
  *  6 1
  *  2 components
  *
+ *  union find 动态连接性问题
+ *
+ * 这个是最优的算法,可以说真的是UionFind几个实现当中写的最好的
  ******************************************************************************/
 
 
@@ -30,8 +33,8 @@ import algs4_lib.StdOut;
 
 public class UF {
 
-    private int[] parent;  // parent[i] = parent of i
-    private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)
+    private int[] parent;  // parent[i] = parent of i 存放分量的数组
+    private byte[] rank;   // rank[i] = rank of subtree rooted at i (never more than 31)  加权数组，避免大分量归并到小分量的情况降低效率
     private int count;     // number of components
 
     /**
@@ -63,7 +66,7 @@ public class UF {
     public int find(int p) {
         validate(p);
         while (p != parent[p]) {
-            parent[p] = parent[parent[p]];    // path compression by halving
+            parent[p] = parent[parent[p]];    // path compression by halving将路径二等分,parent[parent[p]]到达了根节点就循环自身
             p = parent[p];
         }
         return p;
@@ -116,7 +119,7 @@ public class UF {
         count--;
     }
 
-    // validate that p is a valid index
+    // validate that p is a valid index 验证节点是否是在范围内
     private void validate(int p) {
         int n = parent.length;
         if (p < 0 || p >= n) {

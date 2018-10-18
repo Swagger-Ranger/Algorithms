@@ -1,6 +1,6 @@
 package mylib.Sortion;
 
-import mylib.MyStdIn;
+import mylib.FileStdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -80,7 +80,7 @@ public class Sort_quick {
     }
 
     private static void sort(Comparable[] a,int lo,int hi){
-        if(lo >= hi) return;
+        if(lo >= hi) return;   //退出条件
         int j = partition(a,lo,hi);     //找到切分位置
         sort(a,lo,j-1);                   //从切分位置继续递归
         sort(a,j+1,hi);
@@ -96,8 +96,8 @@ public class Sort_quick {
     public static void main(String[] args) throws FileNotFoundException {
         String str ="C:\\Swagger-Ranger\\algs4_github_fork\\AlgorithmsSedgewick\\2-Sorting\\2-1-ElementarySorts\\tiny" +
                 ".txt";
-        MyStdIn.setScanner(str);
-        String[] a = MyStdIn.readAllStrings();
+        FileStdIn.setScanner(str);
+        String[] a = FileStdIn.readAllStrings();
 
         System.out.println(Arrays.toString(a));
         Sort_quick.sort(a);

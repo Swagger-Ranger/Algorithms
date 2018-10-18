@@ -1,6 +1,6 @@
 package mylib.Sortion;
 
-import mylib.MyStdIn;
+import mylib.FileStdIn;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -87,11 +87,11 @@ public class Sort_insertion {
                 "\\words3" +
                 ".txt";
         try {
-            MyStdIn.setScanner(str);
+            FileStdIn.setScanner(str);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String[] a = MyStdIn.readAllStrings();
+        String[] a = FileStdIn.readAllStrings();
         System.out.println(Arrays.toString(a));
         System.out.println(less("s","z"));
         Sort_insertion.sort(a);

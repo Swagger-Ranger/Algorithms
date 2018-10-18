@@ -7,6 +7,13 @@ import algs4_lib.StdOut;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+
+/*********************************************************
+ *
+ * 链表实现的包，数据结构
+ *
+ *
+ * ********************************************************/
 public class Bag<Item> implements Iterable<Item> {
     private Node<Item> first;    // beginning of bag
     private int n;               // number of elements in bag
