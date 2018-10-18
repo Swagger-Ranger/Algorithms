@@ -6,9 +6,16 @@ package lwx425876.Chapter2.chapter2_4;
  *  Dependencies: StdOut.java
  *
  *  Minimum-oriented indexed PQ implementation using a binary heap.
- *相对MinPQ而言，在外层的数组有套了一层数组，来方便查找。
  * 索引优先队列（索引堆）
  * 能够更快地访问元素并且能访问改变特定元素见书P203
+ *
+ *  索引优先队列，为什么要使用：只需要存储值的优先队列直接可以用一个数组就可以完成，但当需要存储一个键值对时就需要更复杂的结构
+ *      同时需要注意，键值对只能引用键无法引用其值，这也就是后面设计的数据结构的关键，具体就是将键值对的键放到一个优先队列pq[]数组中，
+ *      pq[]优先队列的排序使用的比较器就是底层键值对的值比较
+ *      这时再将pq[]反转得到一个反转的数组qp[]，为什么反转就是因为，需要获得底层键值对的键，而pq[]数组不能直接获得值，只能通过键来访问
+ *      key[] keys:需要存储的键值对
+ *      int[] pq:引用是堆的位置，即1就是树顶后n/2就是树底，这里的pq是可扩展的数组，n才是其实际的树元素；值为键值对的键
+ *      int[] qp:pq的反向引用，引用为键值对的键，值为键值对在堆中的位置即pq的引用
  ******************************************************************************/
 
 import algs4_lib.StdOut;
@@ -16,35 +23,6 @@ import algs4_lib.StdOut;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- *  The {@code IndexMinPQ} class represents an indexed priority queue of generic keys.
- *  It supports the usual <em>insert</em> and <em>delete-the-minimum</em>
- *  operations, along with <em>delete</em> and <em>change-the-key</em>
- *  methods. In order to let the client refer to keys on the priority queue,
- *  an integer between {@code 0} and {@code maxN - 1}
- *  is associated with each key—the client uses this integer to specify
- *  which key to delete or change.
- *  It also supports methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
- *  the keys.
- *  <p>
- *  This implementation uses a binary heap along with an array to associate
- *  keys with integers in the given range.
- *  The <em>insert</em>, <em>delete-the-minimum</em>, <em>delete</em>,
- *  <em>change-key</em>, <em>decrease-key</em>, and <em>increase-key</em>
- *  operations take logarithmic time.
- *  The <em>is-empty</em>, <em>size</em>, <em>min-index</em>, <em>min-key</em>,
- *  and <em>key-of</em> operations take constant time.
- *  Construction takes time proportional to the specified capacity.
- *  <p>
- *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- *
- *  @param <Key> the generic type of key on this priority queue
- */
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
     private int maxN;        // maximum number of elements on PQ
     private int n;           // number of elements on PQ

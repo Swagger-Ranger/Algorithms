@@ -130,13 +130,14 @@ public class BST<Key extends Comparable<Key>, Value> {
         assert check();
     }
 
+    //注意这里插入一个节点时，节点必定会被插入到树底
     private Node put(Node x, Key key, Value val) {
         if (x == null) return new Node(key, val, 1);
         int cmp = key.compareTo(x.key);
         if      (cmp < 0) x.left  = put(x.left,  key, val);
         else if (cmp > 0) x.right = put(x.right, key, val);
         else              x.val   = val;
-        x.size = 1 + size(x.left) + size(x.right);
+        x.size = 1 + size(x.left) + size(x.right);  //更新节点的数量计数
         return x;
     }
 
@@ -152,6 +153,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         assert check();
     }
 
+    //deleteMin不断深入左子节点，直到遇到为空的节点，然后将指向该节点的链接指向该节点的右节点，右节点为空就为空，然后更新size
     private Node deleteMin(Node x) {    //删除最小的节点，最小的节点肯定在左下最底层，所以只需要重新更新一下涉及的size的值就可以了
         if (x.left == null) return x.right;
         x.left = deleteMin(x.left);     //感觉这里速度会很慢，函数的调用成本并且还不保存以及size的运算成本；在树的深度较大时会体现出来

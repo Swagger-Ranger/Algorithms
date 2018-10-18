@@ -22,7 +22,8 @@ package lwx425876.Chapter3.chapter3_1;
  *  R 3
  *  S 0
  *  X 7
- *  仍然是个链表，只是将链表进行了排序rank:返回一个不大于当前key的数量，插入也是按这个方法插入
+ *  基于有序数组的二分查找
+ *  rank:返回一个不大于当前key的数量，插入也是按这个方法插入
  *  将键按照二分法（二分法在rank的实现中体现）排序，来实现查找相对无序链表N/2-->lgN的效率提升，插入的效率基本和无序链表N的效率一致。
  *  关键的算法在于rank（）方法，他返回一个不大于当前键的数量
  ******************************************************************************/
@@ -37,7 +38,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
     private Key[] keys;
     private Value[] vals;
-    private int n = 0;
+    private int n = 0;  //size大小的计数
 
     /**
      * Initializes an empty symbol table.
@@ -118,7 +119,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     } 
 
     /**
-     * Returns the number of keys in this symbol table strictly less than {@code key}.
+     * Returns the number of keys in this symbol table strictly less than {@code key}
+     * 返回键小于key的键的数量，与select互为逆方法
      *
      * @param  key the key
      * @return the number of keys in the symbol table strictly less than {@code key}
@@ -263,6 +265,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
     /**
      * Return the kth smallest key in this symbol table.
+     * 返回排名为k的键，与rank互为逆方法
      *
      * @param  k the order statistic
      * @return the {@code k}th smallest key in this symbol table

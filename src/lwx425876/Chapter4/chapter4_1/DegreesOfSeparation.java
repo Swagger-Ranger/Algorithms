@@ -1,5 +1,8 @@
 package lwx425876.Chapter4.chapter4_1;
 
+import algs4_lib.StdIn;
+import algs4_lib.StdOut;
+
 /*************************************************************************
  *  Compilation:  javac DegreesOfSeparation.java
  *  Execution:    java DegreesOfSeparation filename delimiter source
@@ -49,6 +52,8 @@ package lwx425876.Chapter4.chapter4_1;
  *     Hitchcock, Alfred (I)
  *     To Catch a Thief (1955)
  *
+ * 无向图中的度数：即两个节点之间最短的链接路径长度和路径
+ * 方法：使用符号图来建立图，在使用bfs来寻找路径
  *************************************************************************/
 
 public class DegreesOfSeparation {

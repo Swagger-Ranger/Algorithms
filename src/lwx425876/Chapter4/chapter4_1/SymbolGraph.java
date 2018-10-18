@@ -1,5 +1,10 @@
 package lwx425876.Chapter4.chapter4_1;
 
+import algs4_lib.In;
+import algs4_lib.StdIn;
+import algs4_lib.StdOut;
+import lwx425876.Chapter3.chapter3_5.ST;
+
 /*************************************************************************
  *  Compilation:  javac SymbolGraph.java
  *  Execution:    java SymbolGraph filename.txt delimiter
@@ -34,10 +39,14 @@ package lwx425876.Chapter4.chapter4_1;
  *     Apollo 13 (1995)
  *     Animal House (1978)
  *
+ *  符号图
+ *  背景：很多图的节点并不是数字定义的，很多是字符串比如文件，网页等等
+ *  方法：这里保存非数字定义的节点的方法就是使用符号图即将非数字的节点转化为数字节点
+ *       将节点保存进键为字符串等类型值为数字的符号表中，然后用个数组来反向索引刚才的符号表，最后将图的表示使用数字作为节点，那么就可以使用之前的图的所有算法了
  *************************************************************************/
 
 public class SymbolGraph {
-    private ST<String, Integer> st;  // string -> index
+    private ST<String, Integer> st;  // string -> index  ST以treemap（红黑树为底层）为底层的符号表
     private String[] keys;           // index  -> string
     private Graph G;
 
@@ -48,14 +57,14 @@ public class SymbolGraph {
         // distinct strings with an index
         In in = new In(filename);
         while (in.hasNextLine()) {
-            String[] a = in.readLine().split(delimiter);
+            String[] a = in.readLine().split(delimiter);    //使用传入的参数来作为分隔符以读入节点
             for (int i = 0; i < a.length; i++) {
                 if (!st.contains(a[i]))
                     st.put(a[i], st.size());
             }
         }
 
-        // inverted index to get string keys in an aray
+        // inverted index to get string keys in an array反向数组
         keys = new String[st.size()];
         for (String name : st.keys()) {
             keys[st.get(name)] = name;
@@ -65,7 +74,7 @@ public class SymbolGraph {
         // line to all others
         G = new Graph(st.size());
         in = new In(filename);
-        while (in.hasNextLine()) {
+        while (in.hasNextLine()) {      //这里再次读取文件数据，建立图---其实具体怎么读还是要根据具体的数据
             String[] a = in.readLine().split(delimiter);
             int v = st.get(a[0]);
             for (int i = 1; i < a.length; i++) {

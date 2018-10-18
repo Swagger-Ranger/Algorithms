@@ -17,6 +17,9 @@ package lwx425876.Chapter2.chapter2_4;
  *  Can be optimized by replacing full exchanges with half exchanges
  *  (ala insertion sort).
  *
+ *  最小优先队列--使用堆来实现
+ *  堆：在没有特殊说明下就是指二叉堆，即根节点小于（minPQ）或者大于（maxPQ）子节点的二叉树，当都大于或者小于时即堆有序
+ *      同时堆使用数组来实现，这样就避免使用指针
  ******************************************************************************/
 
 import algs4_lib.StdIn;
@@ -26,28 +29,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- *  The {@code MinPQ} class represents a priority queue of generic keys.
- *  It supports the usual <em>insert</em> and <em>delete-the-minimum</em>
- *  operations, along with methods for peeking at the minimum key,
- *  testing if the priority queue is empty, and iterating through
- *  the keys.
- *  <p>
- *  This implementation uses a binary heap.
- *  The <em>insert</em> and <em>delete-the-minimum</em> operations take
- *  logarithmic amortized time.
- *  The <em>min</em>, <em>size</em>, and <em>is-empty</em> operations take constant time.
- *  Construction takes time proportional to the specified capacity or the number of
- *  items used to initialize the data structure.
- *  <p>
- *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
- *
- *  @param <Key> the generic type of key on this priority queue
- */
 public class MinPQ<Key> implements Iterable<Key> {
     private Key[] pq;                    // store items at indices 1 to n
     private int n;                       // number of items on priority queue
@@ -104,7 +85,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         pq = (Key[]) new Object[keys.length + 1];
         for (int i = 0; i < n; i++)
             pq[i+1] = keys[i];
-        for (int k = n/2; k >= 1; k--)
+        for (int k = n/2; k >= 1; k--)  //使用下沉方法将堆有序，这里下沉只需要从二分之一出然后往上迭代
             sink(k);
         assert isMinHeap();
     }
@@ -159,7 +140,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         if (n == pq.length - 1) resize(2 * pq.length);
 
         // add x, and percolate it up to maintain heap invariant
-        pq[++n] = x;
+        pq[++n] = x;        //添加在最后，然后上浮堆有序
         swim(n);
         assert isMinHeap();
     }
@@ -196,7 +177,7 @@ public class MinPQ<Key> implements Iterable<Key> {
     private void sink(int k) {
         while (2*k <= n) {
             int j = 2*k;
-            if (j < n && greater(j, j+1)) j++;
+            if (j < n && greater(j, j+1)) j++;      //这里判断二叉树中的子节点谁更大，然后再和大的和需要下沉的根节点比较
             if (!greater(k, j)) break;
             exch(k, j);
             k = j;

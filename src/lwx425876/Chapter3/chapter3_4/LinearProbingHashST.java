@@ -19,7 +19,7 @@ import algs4_lib.StdOut;
  * 直接使用一对数组来存放键值对，遇到hash冲突就往后移一位，使得每个键都被平铺在一张表上，使得查找速度提升
  * 插入和删除是个难点：
  * 插入，需要去检查是否被占用，然后不断往后移
- *      删除，需要向插入一样不断去求hash值来查找到对应的值，然后还要将这个值后面因为这个值占用的哈希值的键往前挪，不然就会导致后面的值无法被查找
+ * 删除，需要向插入一样不断去求hash值来查找到对应的值，然后还要将这个值后面因为这个值占用的哈希值的键往前挪，不然就会导致后面的值无法被查找
  * 同时插入和删除还需要去检查N的大小来维持一个良好的比例：
  *      插入后检查来保证键簇（就是连续的键的集合）不至于太长导致效率降低，和删除后检查使比例不至于太小（空白键太多以至于浪费空间）
  *
@@ -58,7 +58,7 @@ public class LinearProbingHashST<Key, Value> {
     }
 
     // does a key-value pair with the given key exist in the symbol table?
-    public boolean contains(Key key) {
+    public boolean    contains(Key key) {
         return get(key) != null;
     }
 

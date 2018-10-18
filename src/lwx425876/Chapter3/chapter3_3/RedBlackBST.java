@@ -33,6 +33,8 @@ package lwx425876.Chapter3.chapter3_3;
  *      1.红链接均为左链接
  *      2.没有任何的节点同时拥有两个红链接
  *      3.完美黑色平衡，也就是任意的空节点到根节点的黑链接数量相同
+ *
+ *  这里保存树的平衡性就在于1和2；不可能会出现连续的在一边插入的情况，默认红节点且红节点都在左支同时又不能出现连续的红节点
  ******************************************************************************/
 
 import algs4_lib.Queue;
@@ -40,9 +42,11 @@ import algs4_lib.StdIn;
 import algs4_lib.StdOut;
 
 import java.util.NoSuchElementException;
+import java.util.TreeMap;
 
 public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
+    private static final TreeMap tree = null;
     private static final boolean RED   = true;
     private static final boolean BLACK = false;
 
@@ -169,17 +173,17 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
     // insert the key-value pair in the subtree rooted at h
     private Node put(Node h, Key key, Value val) { 
-        if (h == null) return new Node(key, val, RED, 1);
+        if (h == null) return new Node(key, val, RED, 1);   //默认插入红色节点，因为，插入红色节点不会改变节点的平衡性
 
         int cmp = key.compareTo(h.key);
         if      (cmp < 0) h.left  = put(h.left,  key, val); 
         else if (cmp > 0) h.right = put(h.right, key, val); 
-        else              h.val   = val;
+        else              h.val   = val;    //如果键相等而值不相等就相当与更新value值
 
-        // fix-up any right-leaning links
-        if (isRed(h.right) && !isRed(h.left))      h = rotateLeft(h);
-        if (isRed(h.left)  &&  isRed(h.left.left)) h = rotateRight(h);
-        if (isRed(h.left)  &&  isRed(h.right))     flipColors(h);
+        // fix-up any right-leaning links   //保存树的平衡性和红黑树的原则--注意这三者的顺序很重要
+        if (isRed(h.right) && !isRed(h.left))      h = rotateLeft(h);   //当右节点为红，左节点为黑时左旋转
+        if (isRed(h.left)  &&  isRed(h.left.left)) h = rotateRight(h);  //这里要先判断上一行的情况，当连续左节点为红时右旋
+        if (isRed(h.left)  &&  isRed(h.right))     flipColors(h);       //这里在上一行的右旋转后可能会出现左右都为红时将颜色转变为黑--注意这里就增加了树的高度
         h.size = size(h.left) + size(h.right) + 1;
 
         return h;
@@ -196,7 +200,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     public void deleteMin() {
         if (isEmpty()) throw new NoSuchElementException("BST underflow");
 
-        // if both children of root are black, set root to red
+        // if both children of root are black, set root to red--这个我还不清楚是怎样调整树的平衡的？
         if (!isRed(root.left) && !isRed(root.right))
             root.color = RED;
 
@@ -206,14 +210,14 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
     }
 
     // delete the key-value pair with the minimum key rooted at h
-    private Node deleteMin(Node h) { 
+    private Node deleteMin(Node h) {
         if (h.left == null)
             return null;
 
         if (!isRed(h.left) && !isRed(h.left.left))
             h = moveRedLeft(h);
 
-        h.left = deleteMin(h.left);
+        h.left = deleteMin(h.left);     //这一步执行删除操作，当函数进入判断其左子节点为空时就返回空
         return balance(h);
     }
 

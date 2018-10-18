@@ -1,5 +1,9 @@
 package lwx425876.Chapter4.chapter4_1;
 
+import algs4_lib.In;
+import algs4_lib.Stack;
+import algs4_lib.StdOut;
+
 /*************************************************************************
  *  Compilation:  javac DepthFirstPaths.java
  *  Execution:    java DepthFirstPaths G s
@@ -25,7 +29,8 @@ package lwx425876.Chapter4.chapter4_1;
  *  0 to 3:  0-2-3
  *  0 to 4:  0-2-3-4
  *  0 to 5:  0-2-3-5
- *
+ *  对DepthFirstSearch的扩展，增加对路径的记录
+ *  仍然是给定一个图和一个点s，从给定的点出发在类实例化时就搜索出节点并保存在marked[]数组中
  *************************************************************************/
 
 public class DepthFirstPaths {
@@ -45,7 +50,7 @@ public class DepthFirstPaths {
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
-                edgeTo[w] = v;
+                edgeTo[w] = v;  //当遇到新的节点（未标记的节点），就将上个节点作为值保存在引用为上个节点的数组中，数组大小就是节点数量，因为节点只会被标记一次
                 dfs(G, w);
             }
         }
@@ -56,11 +61,11 @@ public class DepthFirstPaths {
         return marked[v];
     }
 
-    // return a path between s to v; null if no such path
+    // return a path between s to v; null if no such path  记录s起点到v的路径
     public Iterable<Integer> pathTo(int v) {
         if (!hasPathTo(v)) return null;
         Stack<Integer> path = new Stack<Integer>();
-        for (int x = v; x != s; x = edgeTo[x])
+        for (int x = v; x != s; x = edgeTo[x])  //理解算法的难点，在dfs遍历中上个节点会作为值保存在对应节点引用的数组edgeTo[]中
             path.push(x);
         path.push(s);
         return path;

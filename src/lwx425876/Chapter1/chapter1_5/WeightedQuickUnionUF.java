@@ -10,6 +10,8 @@ import algs4_lib.StdOut;
  *
  *  Weighted quick-union (without path compression).
  *
+ *  这是对quickUionUF的扩展，增加了sz[]size数组来解决出现大分量归并到小分量导致效率不高的情况
+ *
  ****************************************************************************/
 
 public class WeightedQuickUnionUF {
@@ -53,7 +55,7 @@ public class WeightedQuickUnionUF {
         if (i == j) return;
 
         // make smaller root point to larger one
-        if   (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
+        if   (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }//针对大分量归并到小分量做的先判断的避免改进
         else                 { id[j] = i; sz[i] += sz[j]; }
         count--;
     }

@@ -10,6 +10,7 @@ package lwx425876.Chapter1.chapter1_5;
  *
  *  Quick-union with path compression (but no weighting by size or rank).
  *
+ *  路径压缩的quickUion方法，在find方法中增加一个循环来将后面的节点直接归并或者叫链接到根节点上
  ******************************************************************************/
 
 import algs4_lib.StdIn;
@@ -48,12 +49,12 @@ public class QuickUnionPathCompressionUF {
      * @return the component identifier for the component containing site {@code p}
      * @throws IllegalArgumentException unless {@code 0 <= p < n}
      */
-    public int find(int p) {
+    public int find(int p) {   //算法的关键
         int root = p;
         while (root != id[root])
-            root = id[root];
+            root = id[root];    //找到根节点也就是分量
         while (p != root) {
-            int newp = id[p];
+            int newp = id[p];//将节点直接链接到根节点，使得在uion时会调用本方法就得以将路径的长度压缩，避免很长的查找链
             id[p] = root;
             p = newp;
         }

@@ -31,6 +31,7 @@ package lwx425876.Chapter4.chapter4_1;
  *  1: 220 203 200 194 189 164 150 130 107 72 
  *  2: 141 110 108 86 79 51 42 18 14 
  *  ...
+ *  实现：使用bag这种链表结构来存放联通关系（哪个顶点与哪个顶点相连）；然后使用和下表或者引用是边，值是bag的数组来存放图
  *  
  *************************************************************************/
 
@@ -40,20 +41,11 @@ import algs4_lib.Stack;
 import algs4_lib.StdOut;
 import lwx425876.Chapter1.chapter1_3.Bag;
 
-/**
- *  The <tt>Graph</tt> class represents an undirected graph of vertices
- *  named 0 through V-1.
- *  It supports the following operations: add an edge to the graph,
- *  iterate over all of the neighbors adjacent to a vertex.
- *  Parallel edges and self-loops are permitted.
- *  <p>
- *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/51undirected">Section 5.1</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- */
+
 public class Graph {
-    private final int V;
-    private int E;
-    private Bag<Integer>[] adj;
+    private final int V;    //vertex:顶点；edge：边
+    private int E;          //边的数量
+    private Bag<Integer>[] adj;//邻接表---每一个顶点都对应bag[]数组里的一个bag（链表实现的bag）
     
    /**
      * Create an empty graph with V vertices.

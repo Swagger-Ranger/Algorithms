@@ -1,5 +1,9 @@
 package lwx425876.Chapter4.chapter4_1;
 
+import algs4_lib.In;
+import algs4_lib.Queue;
+import algs4_lib.StdOut;
+
 /*************************************************************************
  *  Compilation:  javac CC.java
  *  Execution:    java CC filename.txt
@@ -14,23 +18,26 @@ package lwx425876.Chapter4.chapter4_1;
  *  0 1 2 3 4 5 6
  *  7 8 
  *  9 10 11 12
+ *  CC Connected component   联通分量
+ *  这里使用了dfs来搜索节点，相对dfs来说只是将每个节点都作为起点如果没有被搜索标记就都搜索一遍
+ *  相对dfs这里dfs搜索增加了id[v] = count和size[v]++，这里非常巧妙，在CC初始化分量遍历中count来计算分量数量，在dfs搜索中用count来确定节点所在分量
  *
  *************************************************************************/
 
 public class CC {
     private boolean[] marked;   // marked[v] = has vertex v been marked?
-    private int[] id;           // id[v] = id of connected component containing v
-    private int[] size;         // size[v] = number of vertices in component containing v
-    private int count;          // number of connected components
+    private int[] id;           // id[v] = id of connected component containing 节点v所在的联通分量
+    private int[] size;         // size[v] = number of vertices in component containing v  联通分量中包含的节点数量
+    private int count;          // number of connected components  联通分量的数量
 
-    public CC(Graph G) {
+    public CC(Graph G) {            //CC和dfs相连的非常巧妙！！！
         marked = new boolean[G.V()];
         id = new int[G.V()];
         size = new int[G.V()];
         for (int v = 0; v < G.V(); v++) {
             if (!marked[v]) {
                 dfs(G, v);
-                count++;
+                count++;        //每新进入一个dfs就是一个新的分量，即分量数量加一
             }
         }
     }

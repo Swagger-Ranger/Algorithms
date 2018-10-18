@@ -1,5 +1,9 @@
 package lwx425876.Chapter4.chapter4_1;
 
+import algs4_lib.Stack;
+import algs4_lib.StdOut;
+import algs4_lib.StdRandom;
+
 /*************************************************************************
  *  Compilation:  javac Bipartite.java
  *  Dependencies: Graph.java 
@@ -7,7 +11,7 @@ package lwx425876.Chapter4.chapter4_1;
  *  Given a graph, find either (i) a bipartition or (ii) an odd-length cycle.
  *  Runs in O(E + V) time.
  *
- *
+ *  二分图，有个图是否可以被二分；比如：一幅由电影和演员组成的图，那就一定可以被二分，因为电影和电影，演员和演员无法联通，必须不同才能组成图
  *************************************************************************/
 
 public class Bipartite {

@@ -6,7 +6,7 @@ package lwx425876.Chapter3.chapter3_5; /****************************************
  *  Does not allow duplicates.
  *
  *  % java ST
- *
+ *  使用treemap为底层实现的有序符号表
  *************************************************************************/
 
 import algs4_lib.StdOut;
@@ -15,29 +15,6 @@ import java.util.Iterator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/**
- *  This class represents an ordered symbol table. It assumes that
- *  the elements are <tt>Comparable</tt>.
- *  It supports the usual <em>put</em>, <em>get</em>, <em>contains</em>,
- *  and <em>remove</em> methods.
- *  It also provides ordered methods for finding the <em>minimum</em>,
- *  <em>maximum</em>, <em>floor</em>, and <em>ceiling</em>.
- *  <p>
- *  The class uses the convention that values cannot be null. Setting the
- *  value associated with a key to null is equivalent to removing the key.
- *  <p>
- *  This class implements the Iterable interface for compatiblity with
- *  the version from <em>Introduction to Programming in Java: An Interdisciplinary
- *  Approach</em>.
- *  <p>
- *  This implementation uses a balanced binary search tree.
- *  The <em>add</em>, <em>contains</em>, <em>remove</em>, <em>minimum</em>,
- *  <em>maximum</em>, <em>ceiling</em>, and <em>floor</em> methods take
- *  logarithmic time.
- *  <p>
- *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/35applications">Section 4.5</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- */
 public class ST<Key extends Comparable<Key>, Value> implements Iterable<Key> {
 
     private TreeMap<Key, Value> st;
