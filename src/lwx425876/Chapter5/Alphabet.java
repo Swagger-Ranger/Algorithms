@@ -2,6 +2,8 @@ package lwx425876.Chapter5;
 
 import algs4_lib.StdOut;
 
+import java.util.ArrayList;
+
 /******************************************************************************
  *  Compilation:  javac Alphabet.java
  *  Execution:    java Alphabet
@@ -248,6 +250,7 @@ public class Alphabet {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
+        ArrayList asd = null;
         int[]  encoded1 = Alphabet.BASE64.toIndices("NowIsTheTimeForAllGoodMen");
         String decoded1 = Alphabet.BASE64.toChars(encoded1);
         StdOut.println(decoded1);

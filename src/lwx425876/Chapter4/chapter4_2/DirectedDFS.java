@@ -55,7 +55,7 @@ public class DirectedDFS {
         return marked[v];
     }
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
 
         // read in digraph from command-line argument

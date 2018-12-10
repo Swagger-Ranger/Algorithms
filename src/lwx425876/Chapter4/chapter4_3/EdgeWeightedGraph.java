@@ -177,7 +177,7 @@ public class EdgeWeightedGraph {
     }
 
    /**
-     * Test client.
+     * Test webService.client.
      */
     public static void main(String[] args) {
         In in = new In(args[0]);

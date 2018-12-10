@@ -69,7 +69,7 @@ public class Edge implements Comparable<Edge> {
 
 
    /**
-     * Test client.
+     * Test webService.client.
      */
     public static void main(String[] args) {
         Edge e = new Edge(12, 23, 3.14);

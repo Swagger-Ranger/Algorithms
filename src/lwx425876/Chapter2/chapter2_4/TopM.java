@@ -7,7 +7,7 @@ package lwx425876.Chapter2.chapter2_4;
  *  Data files:   https://algs4.cs.princeton.edu/24pq/tinyBatch.txt
  *
  *  Given an integer m from the command line and an input stream where
- *  each line contains a String and a long value, this MinPQ client
+ *  each line contains a String and a long value, this MinPQ webService.client
  *  prints the m lines whose numbers are the highest.
  *
  *  % java TopM 5 < tinyBatch.txt
@@ -24,7 +24,7 @@ import algs4_lib.StdIn;
 import algs4_lib.StdOut;
 
 /**
- *  The {@code TopM} class provides a client that reads a sequence of
+ *  The {@code TopM} class provides a webService.client that reads a sequence of
  *  transactions from standard input and prints the <em>m</em> largest ones
  *  to standard output. This implementation uses a {@link MinPQ} of size
  *  at most <em>m</em> + 1 to identify the <em>M</em> largest transactions

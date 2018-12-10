@@ -395,12 +395,12 @@ public final class StdAudio {
     }
 
     /**
-     * Test client - play an A major scale to standard audio.
+     * Test webService.client - play an A major scale to standard audio.
      *
      * @param args the command-line arguments
      */
     /**
-     * Test client - play an A major scale to standard audio.
+     * Test webService.client - play an A major scale to standard audio.
      *
      * @param args the command-line arguments
      */

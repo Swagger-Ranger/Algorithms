@@ -37,7 +37,7 @@ import java.util.NoSuchElementException;
  *  standard Java representations, in big-endian (most significant
  *  byte first) order.
  *  <p>
- *  The client should not intermix calls to {@code BinaryIn} with calls
+ *  The webService.client should not intermix calls to {@code BinaryIn} with calls
  *  to {@code In}; otherwise unexpected behavior will result.
  *
  *  @author Robert Sedgewick
@@ -69,9 +69,9 @@ public final class BinaryIn {
     }
 
    /**
-     * Initializes a binary input stream from a socket.
+     * Initializes a binary input stream from a SocketClient.
      *
-     * @param socket the socket
+     * @param socket the SocketClient
      */
     public BinaryIn(Socket socket) {
         try {

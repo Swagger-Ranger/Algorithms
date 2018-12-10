@@ -267,7 +267,7 @@ public class RedBlackLiteBST<Key extends Comparable<Key>, Value> {
 
 
    /***************************************************************************
-    *  Test client.
+    *  Test webService.client.
     ***************************************************************************/
     public static void main(String[] args) {
 

@@ -106,7 +106,7 @@ public class SparseVector {
     }
 
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         SparseVector a = new SparseVector(10);
         SparseVector b = new SparseVector(10);

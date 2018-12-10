@@ -31,7 +31,7 @@ import algs4_lib.In;
 import algs4_lib.StdOut;
 
 /**
- *  The {@code Multiway} class provides a client for reading in several
+ *  The {@code Multiway} class provides a webService.client for reading in several
  *  sorted text files and merging them together into a single sorted
  *  text stream.
  *  This implementation uses a {@link IndexMinPQ} to perform the multiway
@@ -72,7 +72,7 @@ public class Multiway {
      *  Reads sorted text files specified as command-line arguments;
      *  merges them together into a sorted output; and writes
      *  the results to standard output.
-     *  Note: this client does not check that the input files are sorted.
+     *  Note: this webService.client does not check that the input files are sorted.
      *
      * @param args the command-line arguments
      */

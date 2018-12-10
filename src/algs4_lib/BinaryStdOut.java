@@ -23,9 +23,9 @@ import java.io.IOException;
  *  to sequences of bits and writing them to standard output.
  *  Uses big-endian (most-significant byte first).
  *  <p>
- *  The client must {@code flush()} the output stream when finished writing bits.
+ *  The webService.client must {@code flush()} the output stream when finished writing bits.
  *  <p>
- *  The client should not intermix calls to {@code BinaryStdOut} with calls
+ *  The webService.client should not intermix calls to {@code BinaryStdOut} with calls
  *  to {@code StdOut} or {@code System.out}; otherwise unexpected behavior 
  *  will result.
  *

@@ -114,7 +114,7 @@ public class RabinKarp {
         return prime.longValue();
     }
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         String pat = args[0];
         String txt = args[1];

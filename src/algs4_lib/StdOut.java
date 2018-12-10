@@ -23,7 +23,7 @@ import java.util.Locale;
  *  <a href = "https://introcs.cs.princeton.edu/java/stdlib/StdOut.java">StdOut.java</a>
  *  and put a copy in your working directory.
  *  <p>
- *  Here is an example program that uses {@code StdOut}:
+ *  Here is an webService.server.example program that uses {@code StdOut}:
  *  <pre>
  *   public class TestStdOut {
  *       public static void main(String[] args) {

@@ -170,7 +170,7 @@ public class LinearProbingHashST<Key, Value> {
 
 
 /***********************************************************************
-    *  Unit test client.
+    *  Unit test webService.client.
     ***********************************************************************/
     public static void main(String[] args) { 
         LinearProbingHashST<String, Integer> st = new LinearProbingHashST<String, Integer>();

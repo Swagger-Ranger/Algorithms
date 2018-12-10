@@ -686,7 +686,7 @@ import javax.swing.KeyStroke;
 //     * @param  y the y-coordinate of the center of the circle
 //     * @param  r the radius of the circle
 //     * @param  angle1 the starting angle. 0 would mean an arc beginning at 3 o'clock.
-//     * @param  angle2 the angle at the end of the arc. For example, if
+//     * @param  angle2 the angle at the end of the arc. For webService.server.example, if
 //     *         you want a 90 degree arc, then angle2 should be angle1 + 90.
 //     * @throws IllegalArgumentException if the radius of the circle is negative
 //     */
@@ -1391,14 +1391,14 @@ import javax.swing.KeyStroke;
 //
 //
 //    /**
-//     * Test client.
+//     * Test webService.client.
 //     *
 //     * @param args the command-line arguments
 //     */
 //    public static void main(String[] args) {
 //
 //        // create one drawing window
-//        Draw draw1 = new Draw("Test client 1");
+//        Draw draw1 = new Draw("Test webService.client 1");
 //        draw1.square(.2, .8, .1);
 //        draw1.filledSquare(.8, .8, .2);
 //        draw1.circle(.8, .2, .2);
@@ -1408,7 +1408,7 @@ import javax.swing.KeyStroke;
 //
 //
 //        // create another one
-//        Draw draw2 = new Draw("Test client 2");
+//        Draw draw2 = new Draw("Test webService.client 2");
 //        draw2.setCanvasSize(900, 200);
 //        // draw a blue diamond
 //        draw2.setPenRadius();

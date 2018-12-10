@@ -30,10 +30,10 @@ import algs4_lib.StdIn;
 import algs4_lib.StdOut;
 
 /**
- *  The {@code FrequencyCounter} class provides a client for
+ *  The {@code FrequencyCounter} class provides a webService.client for
  *  reading in a sequence of words and printing a word (exceeding
  *  a given length) that occurs most frequently. It is useful as
- *  a test client for various symbol table implementations.
+ *  a test webService.client for various symbol table implementations.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/31elementary">Section 3.1</a> of
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.

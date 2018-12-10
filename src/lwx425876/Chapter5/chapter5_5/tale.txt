@@ -2592,7 +2592,7 @@ at the tips of their tongues whereat the jurys countenances
 displayed a guilty consciousness that they knew nothing about the
 passages was in a manner contagious more especially the bright
 virtue known as patriotism or love of country  that the lofty
-example of this immaculate and unimpeachable witness for the crown
+webService.server.example of this immaculate and unimpeachable witness for the crown
 to refer to whom however unworthily was an honour had communicated
 itself to the prisoners servant and had engendered in him a holy
 determination to examine his masters tabledrawers and pockets and
@@ -3201,13 +3201,13 @@ into companies and conversations that argued well for his shouldering
 his way up in life
 
 he still had his wig and gown on and he said squaring himself at his
-late client to that degree that he squeezed the innocent mr lorry
+late webService.client to that degree that he squeezed the innocent mr lorry
 clean out of the group  i am glad to have brought you off with honour
 mr darnay  it was an infamous prosecution grossly infamous
 but not the less likely to succeed on that account
 
 you have laid me under an obligation to you for lifein two senses
-said his late client taking his hand
+said his late webService.client taking his hand
 
 i have done my best for you mr darnay and my best is as good as
 another mans i believe
@@ -3536,7 +3536,7 @@ upon it and brandy and rum and sugar and lemons
 
 you have had your bottle i perceive sydney
 
-two tonight i think  i have been dining with the days client
+two tonight i think  i have been dining with the days webService.client
 or seeing him dineits all one
 
 that was a rare point sydney that you brought to bear upon the
@@ -4300,7 +4300,7 @@ the grand opera had far more influence with him in the tiresome
 articles of state affairs and state secrets than the needs of all
 france  a happy circumstance for france as the like always is for
 all countries similarly favouredalways was for england by way of
-example in the regretted days of the merry stuart who sold it
+webService.server.example in the regretted days of the merry stuart who sold it
 
 monseigneur had one truly noble idea of general public business
 which was to let everything go on in its own way of particular
@@ -5197,7 +5197,7 @@ new philosophy graciously intend to live
 i must do to live what others of my countrymen even with nobility
 at their backs may have to do some daywork
 
-in england for example
+in england for webService.server.example
 
 yes  the family honour sir is safe from me in this country  the
 family name can suffer from me in no other for i bear it in no other
@@ -7318,7 +7318,7 @@ in one of their own horses or dogs they only know what your breath
 tells them  let it deceive them then a little longer it cannot
 deceive them too much
 
-madame defarge looked superciliously at the client and nodded in
+madame defarge looked superciliously at the webService.client and nodded in
 confirmation
 
 as to you said she you would shout and shed tears for anything
@@ -9540,7 +9540,7 @@ domesticated animals men women children and the soil that bore
 themall worn out
 
 monseigneur often a most worthy individual gentleman was a national
-blessing gave a chivalrous tone to things was a polite example of
+blessing gave a chivalrous tone to things was a polite webService.server.example of
 luxurious and shining fife and a great deal more to equal purpose
 nevertheless monseigneur as a class had somehow or other brought
 things to this  strange that creation designed expressly for

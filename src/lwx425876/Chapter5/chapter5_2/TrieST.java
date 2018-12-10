@@ -4,6 +4,8 @@ import algs4_lib.Queue;
 import algs4_lib.StdIn;
 import algs4_lib.StdOut;
 
+import java.util.ArrayList;
+
 /*************************************************************************
  *  Compilation:  javac TrieST.java
  *  Execution:    java TrieST < words.txt
@@ -141,7 +143,7 @@ public class TrieST<Value> {
     }
 
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
 
         // build symbol table from standard input

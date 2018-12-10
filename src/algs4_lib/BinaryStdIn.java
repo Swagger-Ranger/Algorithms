@@ -28,7 +28,7 @@ import java.util.NoSuchElementException;
  *  standard Java representations, in big-endian (most significant
  *  byte first) order.
  *  <p>
- *  The client should not intermix calls to {@code BinaryStdIn} with calls
+ *  The webService.client should not intermix calls to {@code BinaryStdIn} with calls
  *  to {@code StdIn} or {@code System.in};
  *  otherwise unexpected behavior will result.
  *
@@ -282,7 +282,7 @@ public final class BinaryStdIn {
     }
     
    /**
-     * Test client. Reads in a binary input file from standard input and writes
+     * Test webService.client. Reads in a binary input file from standard input and writes
      * it to standard output.
      *
      * @param args the command-line arguments

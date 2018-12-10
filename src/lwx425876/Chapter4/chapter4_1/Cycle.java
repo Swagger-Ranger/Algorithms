@@ -107,7 +107,7 @@ public class Cycle {
         }
     }
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         int V = Integer.parseInt(args[0]);
         int E = Integer.parseInt(args[1]);

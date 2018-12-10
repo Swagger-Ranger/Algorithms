@@ -1,9 +1,9 @@
-package JavaCore;
+package JavaSE;
 
 import java.io.*;
 
 
-//example from http://www.runoob.com/java/java-files-io.html;
+//webService.server.example from http://www.runoob.com/java/java-files-io.html;
 
 public class Test_IO {
 

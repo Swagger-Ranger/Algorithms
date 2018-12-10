@@ -24,7 +24,7 @@ import java.util.Stack;
  *
  *  Note: the operators, operands, and parentheses must be
  *  separated by whitespace. Also, each operation must
- *  be enclosed in parentheses. For example, you must write
+ *  be enclosed in parentheses. For webService.server.example, you must write
  *  ( 1 + ( 2 + 3 ) ) instead of ( 1 + 2 + 3 ).
  *  See EvaluateDeluxe.java for a fancier version.
  *

@@ -22,7 +22,7 @@ import algs4_lib.StdOut;
 import algs4_lib.StdRandom;
 
 /**
- *  The {@code DoublingRatio} class provides a client for measuring
+ *  The {@code DoublingRatio} class provides a webService.client for measuring
  *  the running time of a method using a doubling ratio test.
  *  <p>
  *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/14analysis">Section 1.4</a>

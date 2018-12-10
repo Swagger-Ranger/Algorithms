@@ -1,4 +1,4 @@
-package JavaCore.NestedClass;
+package JavaSE.NestedClass;
 /*
 * 在类里面定义接口，然后在方法中直接使用一个语句实现接口--匿名类
 * */

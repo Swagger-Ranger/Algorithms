@@ -48,7 +48,7 @@ public class TransitiveClosure {
         return tc[v].marked(w);
     }
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         In in = new In(args[0]);
         Digraph G = new Digraph(in);

@@ -1,6 +1,4 @@
-package JavaCore;
-
-import algs4_lib.In;
+package JavaSE;
 
 import java.util.Scanner;
 

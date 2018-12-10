@@ -7,7 +7,7 @@ package algs4_lib;
  *
  *  Library of statistical functions.
  *
- *  The test client reads an array of real numbers from standard
+ *  The test webService.client reads an array of real numbers from standard
  *  input, and computes the minimum, mean, maximum, and
  *  standard deviation.
  *

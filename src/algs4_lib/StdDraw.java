@@ -156,7 +156,7 @@ import javax.swing.KeyStroke;
  *  The arc is from the circle centered at (<em>x</em>, <em>y</em>) of the specified radius.
  *  The arc extends from angle1 to angle2. By convention, the angles are
  *  <em>polar</em> (counterclockwise angle from the <em>x</em>-axis)
- *  and represented in degrees. For example, {@code StdDraw.arc(0.0, 0.0, 1.0, 0, 90)}
+ *  and represented in degrees. For webService.server.example, {@code StdDraw.arc(0.0, 0.0, 1.0, 0, 90)}
  *  draws the arc of the unit circle from 3 o'clock (0 degrees) to 12 o'clock (90 degrees).
  *  <p>
  *  <b>Polygons.</b>
@@ -167,7 +167,7 @@ import javax.swing.KeyStroke;
  *  </ul>
  *  <p>
  *  The points in the polygon are ({@code x[i]}, {@code y[i]}).
- *  For example, the following code fragment draws a filled diamond
+ *  For webService.server.example, the following code fragment draws a filled diamond
  *  with vertices (0.1, 0.2), (0.2, 0.3), (0.3, 0.2), and (0.2, 0.1):
  *  <pre>
  *   double[] x = { 0.1, 0.2, 0.3, 0.2 };
@@ -188,7 +188,7 @@ import javax.swing.KeyStroke;
  *  <li> {@link #setPenRadius(double radius)}
  *  </ul>
  *  <p>
- *  For example, {@code StdDraw.setPenRadius(0.025)} makes
+ *  For webService.server.example, {@code StdDraw.setPenRadius(0.025)} makes
  *  the thickness of the lines and the size of the points to be five times
  *  the 0.005 default.
  *  To draw points with the minimum possible radius (one pixel on typical
@@ -214,7 +214,7 @@ import javax.swing.KeyStroke;
  *  {@link #PINK}, {@link #RED}, {@link #WHITE}, {@link #YELLOW},
  *  {@link #BOOK_BLUE}, {@link #BOOK_LIGHT_BLUE}, {@link #BOOK_RED}, and
  *  {@link #PRINCETON_ORANGE}.
- *  For example, {@code StdDraw.setPenColor(StdDraw.MAGENTA)} sets the
+ *  For webService.server.example, {@code StdDraw.setPenColor(StdDraw.MAGENTA)} sets the
  *  pen color to magenta.
  *  <p>
  *  <b>Canvas size.</b>
@@ -229,7 +229,7 @@ import javax.swing.KeyStroke;
  *  It also erases the current drawing and resets the coordinate system,
  *  pen radius, pen color, and font back to their default values.
  *  Ordinarly, this method is called once, at the very beginning of a program.
- *  For example, {@code StdDraw.setCanvasSize(800, 800)}
+ *  For webService.server.example, {@code StdDraw.setCanvasSize(800, 800)}
  *  sets the canvas size to be 800-by-800 pixels.
  *  <p>
  *  <b>Canvas scale and coordinate system.</b>
@@ -244,7 +244,7 @@ import javax.swing.KeyStroke;
  *  <p>
  *  The arguments are the coordinates of the minimum and maximum 
  *  <em>x</em>- or <em>y</em>-coordinates that will appear in the canvas.
- *  For example, if you  wish to use the default coordinate system but
+ *  For webService.server.example, if you  wish to use the default coordinate system but
  *  leave a small margin, you can call {@code StdDraw.setScale(-.05, 1.05)}.
  *  <p>
  *  These methods change the coordinate system for subsequent drawing
@@ -274,7 +274,7 @@ import javax.swing.KeyStroke;
  *  </ul>
  *  <p>
  *  You use the {@link Font} data type to specify the font. This allows you to
- *  choose the face, size, and style of the font. For example, the following
+ *  choose the face, size, and style of the font. For webService.server.example, the following
  *  code fragment sets the font to Arial Bold, 60 point.
  *  <pre>
  *   Font font = new Font("Arial", Font.BOLD, 60);
@@ -317,7 +317,7 @@ import javax.swing.KeyStroke;
  *  </ul>
  *  <p>
  *  The first method clears the canvas to white; the second method
- *  allows you to specify a color of your choice. For example,
+ *  allows you to specify a color of your choice. For webService.server.example,
  *  {@code StdDraw.clear(StdDraw.LIGHT_GRAY)} clears the canvas to a shade
  *  of gray.
  *  <p>
@@ -360,7 +360,7 @@ import javax.swing.KeyStroke;
  *  The {@link #clear()}, {@link #show()}, and {@link #pause(int t)} methods
  *  support the first, third, and fourth of these steps, respectively.
  *  <p>
- *  For example, this code fragment animates two balls moving in a circle.
+ *  For webService.server.example, this code fragment animates two balls moving in a circle.
  *  <pre>
  *   StdDraw.setScale(-2, +2);
  *   StdDraw.enableDoubleBuffering();
@@ -625,7 +625,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     // set of key codes currently pressed down
     private static TreeSet<Integer> keysDown = new TreeSet<Integer>();
 
-    // singleton pattern: client can't instantiate
+    // singleton pattern: webService.client can't instantiate
     private StdDraw() { }
 
 
@@ -1087,7 +1087,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param  y the <em>y</em>-coordinate of the center of the circle
      * @param  radius the radius of the circle
      * @param  angle1 the starting angle. 0 would mean an arc beginning at 3 o'clock.
-     * @param  angle2 the angle at the end of the arc. For example, if
+     * @param  angle2 the angle at the end of the arc. For webService.server.example, if
      *         you want a 90 degree arc, then angle2 should be angle1 + 90.
      * @throws IllegalArgumentException if {@code radius} is negative
      */
@@ -1869,7 +1869,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
 
     /**
-     * Test client.
+     * Test webService.client.
      *
      * @param args the command-line arguments
      */

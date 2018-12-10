@@ -28,9 +28,9 @@ import java.net.Socket;
  *  The output stream can be standard output, a file, an OutputStream or a Socket.
  *  Uses big-endian (most-significant byte first).
  *  <p>
- *  The client must {@code flush()} the output stream when finished writing bits.
+ *  The webService.client must {@code flush()} the output stream when finished writing bits.
  *  <p>
- *  The client should not intermix calls to {@code BinaryOut} with calls
+ *  The webService.client should not intermix calls to {@code BinaryOut} with calls
  *  to {@code Out}; otherwise unexpected behavior will result.
  *
  *  @author Robert Sedgewick
@@ -73,8 +73,8 @@ public final class BinaryOut {
     }
 
    /**
-     * Initializes a binary output stream from a socket.
-     * @param socket the socket
+     * Initializes a binary output stream from a SocketClient.
+     * @param socket the SocketClient
      */
     public BinaryOut(Socket socket) {
         try {
@@ -318,7 +318,7 @@ public final class BinaryOut {
 
 
    /**
-     * Test client. Read bits from standard input and write to the file
+     * Test webService.client. Read bits from standard input and write to the file
      * specified on command line.
      *
      * @param args the command-line arguments

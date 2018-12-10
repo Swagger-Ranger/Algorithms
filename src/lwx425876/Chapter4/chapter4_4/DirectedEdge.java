@@ -50,7 +50,7 @@ public class DirectedEdge {
     }
 
    /**
-     * Test client.
+     * Test webService.client.
      */
     public static void main(String[] args) {
         DirectedEdge e = new DirectedEdge(12, 23, 3.14);

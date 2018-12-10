@@ -5,7 +5,7 @@ package algs4_lib;
  *  Execution:    java Out
  *  Dependencies: none
  *
- *  Writes data of various types to: stdout, file, or socket.
+ *  Writes data of various types to: stdout, file, or SocketClient.
  *
  ******************************************************************************/
 
@@ -63,9 +63,9 @@ public class Out {
     }
 
    /**
-     * Initializes an output stream from a socket.
+     * Initializes an output stream from a SocketClient.
      *
-     * @param  socket the socket
+     * @param  socket the SocketClient
      */
     public Out(Socket socket) {
         try {
@@ -298,7 +298,7 @@ public class Out {
 
 
    /**
-     * A test client.
+     * A test webService.client.
      *
      * @param args the command-line arguments
      */

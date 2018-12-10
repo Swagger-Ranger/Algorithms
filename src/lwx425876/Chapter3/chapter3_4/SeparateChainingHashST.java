@@ -122,7 +122,7 @@ public class SeparateChainingHashST<Key, Value> {
 
 
    /***********************************************************************
-    *  Unit test client.
+    *  Unit test webService.client.
     ***********************************************************************/
     public static void main(String[] args) { 
         SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<String, Integer>();

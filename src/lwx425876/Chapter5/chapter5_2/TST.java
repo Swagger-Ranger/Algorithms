@@ -163,7 +163,7 @@ public class TST<Value> {
 
 
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         // build symbol table from standard input
         TST<Integer> st = new TST<Integer>();

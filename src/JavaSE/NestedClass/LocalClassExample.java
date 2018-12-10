@@ -1,4 +1,4 @@
-package JavaCore.NestedClass;
+package JavaSE.NestedClass;
 
 /*
 * 方法内部定义一个方法内的类，本地类

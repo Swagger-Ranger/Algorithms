@@ -66,12 +66,13 @@ public class Sort_quick {
         int i =lo, j = hi +1;
         Comparable v = a[lo];
         while (true){
-            while (less(a[++i],v)) if( i == hi) break;   //将左边的数进行比较，直到遇到大于切分位置元素V时或者到最右边时推出
-            while (less(v,a[--j])) if( j == lo) break;   //将右边的数进行比较，直到遇到小于切分位置元素V时或者到最左边时推出
+            while (less(a[++i],v)) if( i == hi) break;   //将左边的数进行比较，直到遇到大于切分位置元素V时或者到最右边时退出
+            while (less(v,a[--j])) if( j == lo) break;   //将右边的数进行比较，直到遇到小于切分位置元素V时或者到最左边时退出
             if(i >= j)             break;                //因为之前进行了比较所以当前的i，j不相遇的话就交换，相遇就推出
             exch(a,i,j);
         }
         exch(a,lo,j);                                    //将切分元素放到切分位置：因为原来的切分元素保存的是v = a[i=lo],而交换后的切分位置是j；
+                                                         //这里交换的是j，因为，j往前走，走到不满足时仍然往前走了一位，所以当时的位置是比v小的，所以两者交换，并返回此时的j位置作为切分位
         return j;
     }
 

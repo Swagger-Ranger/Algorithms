@@ -12,7 +12,7 @@ package lwx425876.Chapter2.chapter2_1;
  *  Uses increment sequence proposed by Sedgewick and Incerpi.
  *  The nth element of the sequence is the smallest integer >= 2.5^n
  *  that is relatively prime to all previous terms in the sequence.
- *  For example, incs[4] is 41 because 2.5^4 = 39.0625 and 41 is
+ *  For webService.server.example, incs[4] is 41 because 2.5^4 = 39.0625 and 41 is
  *  the next integer that is relatively prime to 3, 7, and 16.
  *
  *  % more tiny.txt

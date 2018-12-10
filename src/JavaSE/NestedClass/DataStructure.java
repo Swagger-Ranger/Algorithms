@@ -1,4 +1,4 @@
-package JavaCore.NestedClass;
+package JavaSE.NestedClass;
 /*
 * 类里面定义一个私有类（一个.java文件里只能定义一个公有类）--内部类
 * */

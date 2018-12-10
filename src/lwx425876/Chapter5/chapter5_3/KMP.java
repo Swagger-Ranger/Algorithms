@@ -105,7 +105,7 @@ public class KMP {
     }
 
 
-    // test client
+    // test webService.client
     public static void main(String[] args) {
         String pat = args[0];
         String txt = args[1];
