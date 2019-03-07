@@ -6,7 +6,7 @@ import java.util.concurrent.FutureTask;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
- * @FileName: ThreadWithValue
+ * @FileName: ThreadWithReturn
  * @Author: liufei32@outlook.com
  * @Date: 2019/3/4 15:19
  * @Description: 带返回值的线程，关键就是实现Callable接口，接口和Runnable接口类似只有一个带泛型返回值的方法call
@@ -14,7 +14,7 @@ import java.util.concurrent.FutureTask;
  * @Aha-eureka:
  *******************************************************************************/
 
-public class ThreadWithValue implements Callable<Integer> {
+public class ThreadWithReturn implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
@@ -23,8 +23,8 @@ public class ThreadWithValue implements Callable<Integer> {
     }
 
     public static void main( String[] args ) throws ExecutionException, InterruptedException {
-        ThreadWithValue threadWithValue = new ThreadWithValue();
-        FutureTask<Integer> task = new FutureTask<>(threadWithValue);
+        ThreadWithReturn threadWithReturn = new ThreadWithReturn();
+        FutureTask<Integer> task = new FutureTask<>(threadWithReturn);
         Thread thread = new Thread(task);
         thread.start();
         int result = task.get();
