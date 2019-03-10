@@ -1,4 +1,4 @@
-package lwx425876.Chapter1.chapter1_3;
+package JavaCore.BaseStructure;
 
 import algs4_lib.StdIn;
 import algs4_lib.StdOut;
