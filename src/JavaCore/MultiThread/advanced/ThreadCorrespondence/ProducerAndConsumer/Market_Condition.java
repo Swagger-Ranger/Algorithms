@@ -1,4 +1,8 @@
-package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.ProducerAndConsumer;
+package JavaCore.MultiThread.advanced.ThreadCorrespondence.ProducerAndConsumer;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
@@ -9,33 +13,43 @@ package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.ProducerAndConsu
  * @Aha-eureka:
  *******************************************************************************/
 
-public class Market implements Market_Interface{
+public class Market_Condition implements Market_Interface {
 
     private int product_count;
     private final int MAXIMUM = 10;
 
-    public synchronized void produce() {
+    Lock lock = new ReentrantLock();
+    Condition pc = lock.newCondition();
+    Condition cc = lock.newCondition();
+
+    public void produce() {
+
+        lock.lock();
 
         //注意这里判断库存情况必须用while而不能用if，在唤醒后while将继续判断直到不满足即小于库存容量才会生产，而if不会再次去判断库存就直接生产
         while (this.product_count >= MAXIMUM) {
             System.out.println("库存饱和，生产者: " + Thread.currentThread().getName() + ",请停止生产...");
 
             try {
-                wait();
+                pc.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         product_count++;
         System.out.println("生产者： " + Thread.currentThread().getName() + "生成并推送到库存,当前库存：" + product_count);
-        notifyAll();
+        cc.signal();
+
+        lock.unlock();
     }
 
-    public synchronized void consume() {
+    public void consume() {
+
+        lock.lock();
         while (this.product_count <= 0) {
             System.out.println("库存告罄，消费者：" + Thread.currentThread().getName() + "正在等待，请生产者开始生产...");
             try {
-                wait();
+                cc.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -44,6 +58,6 @@ public class Market implements Market_Interface{
 
         product_count--;
         System.out.println("消费者：" + Thread.currentThread().getName() + "消费成功,当前库存：" + product_count);
-        notifyAll();
+        pc.signal();
     }
 }

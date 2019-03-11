@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.MoreDetail;
+package JavaCore.MultiThread.advanced.ThreadCorrespondence.MoreDetail;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
@@ -9,16 +9,21 @@ package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.MoreDetail;
  * @Aha-eureka:
  *******************************************************************************/
 
-public class Thread_2 implements Runnable{
+public class Thread_1 implements Runnable{
 
     Wait_Notify_NotifyAll wnn;
 
-    Thread_2( Wait_Notify_NotifyAll wnn ) {
+    Thread_1( Wait_Notify_NotifyAll wnn ) {
         this.wnn = wnn;
     }
 
     @Override
     public void run() {
-        wnn.getSignal();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        wnn.setSignal();
     }
 }

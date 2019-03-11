@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.ProducerAndConsumer;
+package JavaCore.MultiThread.advanced.ThreadCorrespondence.ProducerAndConsumer;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 

@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.ProducerAndConsumer;
+package JavaCore.MultiThread.advanced.ThreadCorrespondence.ProducerAndConsumer;
 
 public interface Market_Interface {
 

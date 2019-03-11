@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock.ThreadCorrespondence.MoreDetail;
+package JavaCore.MultiThread.advanced.ThreadCorrespondence.MoreDetail;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
