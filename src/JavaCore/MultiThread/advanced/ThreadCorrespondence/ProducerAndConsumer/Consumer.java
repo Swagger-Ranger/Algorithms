@@ -12,13 +12,10 @@ package JavaCore.MultiThread.advanced.ThreadCorrespondence.ProducerAndConsumer;
 public class Consumer implements Runnable{
     private Market_Interface market;
 
-    Consumer( Market market ) {
+    Consumer( Market_Interface market ) {
         this.market = market;
     }
 
-    Consumer( Market_Condition market_condition ) {
-        this.market = market_condition;
-    }
     @Override
     public void run() {
         while (true) {

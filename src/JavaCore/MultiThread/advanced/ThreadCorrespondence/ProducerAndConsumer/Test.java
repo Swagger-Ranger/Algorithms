@@ -1,5 +1,7 @@
 package JavaCore.MultiThread.advanced.ThreadCorrespondence.ProducerAndConsumer;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
  * @FileName: Test
@@ -13,7 +15,9 @@ public class Test {
 
     public static void main( String[] args ) {
 //        Market market = new Market();
-        Market_Condition market = new Market_Condition();
+//        Market_Condition market = new Market_Condition();
+        Market_BlockingQueue market = new Market_BlockingQueue();
+
         Producer p = new Producer(market);
         Consumer c = new Consumer(market);
 
@@ -23,8 +27,11 @@ public class Test {
         new Thread(p).start();
 
         new Thread(c).start();
+//        new Thread(c).start();
         new Thread(c).start();
         new Thread(c).start();
-        new Thread(c).start();
+
+        new Thread(() -> market.size()).start();
+
     }
 }
