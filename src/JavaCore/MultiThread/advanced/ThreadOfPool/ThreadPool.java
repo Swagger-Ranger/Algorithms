@@ -1,11 +1,10 @@
-package JavaCore.MultiThread.advanced;
+package JavaCore.MultiThread.advanced.ThreadOfPool;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
- * @FileName: ThreadPool
+ * @FileName: ThreadOfPool
  * @Author: liufei32@outlook.com
  * @Date: 2019/3/4 15:47
  * @Description: 线程池的入门
@@ -34,7 +33,27 @@ public class ThreadPool {
         threadPool.shutdown();
     }
 
-    public static void main( String[] args ) {
-        threadPoolOfExcutor();
+    public static void threadPoolOfThreadPoolExecutor() {
+//        ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>());
+
+        //ExecutorService就是对ThreadPoolExecutor的封装，直接提供一个更简单配置的工具类
+        ExecutorService pool = Executors.newFixedThreadPool(10);
+        while (true) {
+            pool.execute(()->{
+                System.out.println(Thread.currentThread().getName());
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            });
+        }
     }
+
+    public static void main( String[] args ) {
+//        threadPoolOfExcutor();
+        threadPoolOfThreadPoolExecutor();
+    }
+
 }
