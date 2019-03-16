@@ -1,4 +1,4 @@
-package JavaCore;
+package com.swagger.ranger.algorithm.javacore;
 
 import java.io.*;
 
