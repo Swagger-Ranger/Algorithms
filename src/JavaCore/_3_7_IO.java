@@ -1,5 +1,6 @@
-package com.swagger.ranger.algorithm.javacore;
+package JavaCore;
 
+import algs4_lib.In;
 
 import java.util.Scanner;
 
