@@ -262,7 +262,7 @@ public final class FileStdIn {
     }
 
     private static void resync() {
-//        setScanner(new Scanner(new java.io.BufferedInputStream(System.in), CHARSET_NAME));//在终端窗口使用命令行时使用
+//        setScanner(new Scanner(new java.IO.BufferedInputStream(System.in), CHARSET_NAME));//在终端窗口使用命令行时使用
 
     }
     

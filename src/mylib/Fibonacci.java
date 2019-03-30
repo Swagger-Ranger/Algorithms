@@ -1,6 +1,5 @@
 package mylib;
 
-import com.sun.org.apache.regexp.internal.recompile;
 
 import algs4_lib.StdOut;
 
