@@ -16,11 +16,12 @@ package JavaCore.Reflection;
 
 public class ClassLoadOrder extends ClassLoadOrder_Super{
 
+    //private static ClassLoadOrder instance = new ClassLoadOrder();
+    private static Other instance = new Other();
     static {
         System.out.println(ClassLoader.class.getSimpleName() + " : static{}");
     }
-    //private static ClassLoadOrder instance = new ClassLoadOrder();
-    private static Other instance = new Other();
+
 
     {
         System.out.println("no static");

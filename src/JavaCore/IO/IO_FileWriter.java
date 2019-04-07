@@ -41,7 +41,7 @@ public class IO_FileWriter {
         //创建输出流对象
         FileWriter fw = new FileWriter("./src/JavaCore/IO/FOS.txt", true);
 
-        try (fr;fw) {
+       /* try (fr;fw) {
             //读取输入流并输出到输出流
             char[] cs = new char[1024];
             int len;
@@ -53,7 +53,7 @@ public class IO_FileWriter {
             }
         } catch (IOException e) {
             System.out.println(e);
-        }
+        }*/
 
     }
 }
