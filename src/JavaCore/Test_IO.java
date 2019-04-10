@@ -113,7 +113,16 @@ public class Test_IO {
     public static void main(String[] args) throws IOException {
 //        getInputChar();
 //        getInoputString();
-        fileIO("./fileWrite.txt");
+//        fileIO("./fileWrite.txt");
 //        mixFiles("C:\\CloudMusic\\Alan Walker - The Spectre.ncm","C:\\CloudMusic\\Alan Walker,K-391 - Ignite (Instrumental).ncm");
+
+        while (true) {
+            System.out.println("-------------------------");
+            if (true) {
+                System.out.println("fffffffffffff");
+//                break;
+                return;
+            }
+        }
     }
 }

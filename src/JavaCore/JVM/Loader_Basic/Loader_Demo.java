@@ -27,10 +27,14 @@ public class Loader_Demo {
         System.out.println(System.getProperty("java.class.path"));
 
         /**
-         * 自定义一个与JDK相同的类来测试
+         * 自定义一个与JDK相同的类来测试,直接的结果就是不能执行：
+         * 错误: 在类 JavaCore.JVM.Loader_Basic.Loader_Demo 中找不到 main 方法, 请将 main 方法定义为:
+         *    public static void main(String[] args)
+         * 否则 JavaFX 应用程序类必须扩展javafx.application.Application
          *
+         * 原因：不会加载到这个类
          */
-//        java.lang.String a = "swagger-ranger";
+//        JavaCore.String a = new String();
 //        System.out.println(a.getClass().getClassLoader());
 //        System.out.println(a);
 
