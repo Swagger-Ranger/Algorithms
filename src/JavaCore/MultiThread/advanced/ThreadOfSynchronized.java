@@ -23,23 +23,18 @@ public class ThreadOfSynchronized {
     public static void main( String[] args ) {
         ThreadOfSynchronized ts = new ThreadOfSynchronized();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(Thread.currentThread().getName() + " " + ts.getNextValue());
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName() + " " + ts.getNextValue());
             }
         }).start();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        new Thread(()-> {
                 while (true) {
                     try {
                         Thread.sleep(10);
@@ -48,7 +43,6 @@ public class ThreadOfSynchronized {
                     }
                     System.out.println(Thread.currentThread().getName() + " " + ts.getNextValue());
                 }
-            }
         }).start();
 
         new Thread(new Runnable() {

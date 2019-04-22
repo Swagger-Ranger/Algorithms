@@ -22,12 +22,7 @@ public class ThreadPool {
 
         for (int i = 0; i < 100; i++) {
             //excute中创建线程
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println(Thread.currentThread().getName()+" is running...");
-                }
-            });
+            threadPool.execute(() -> System.out.println(Thread.currentThread().getName()+" is running..."));
         }
         //销毁线程池
         threadPool.shutdown();

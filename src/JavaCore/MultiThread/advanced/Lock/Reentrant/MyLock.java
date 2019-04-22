@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock;
+package JavaCore.MultiThread.advanced.Lock.Reentrant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,23 +12,17 @@ import java.util.concurrent.locks.Lock;
  * @Author: liufei32@outlook.com
  * @Date: 2019/3/8 12:53
  * @Description: 使用synchronized关键字来实现Lock接口，一个自定义的锁
- * @Aha-eureka:  实现一个可重入的锁
+ * @Aha-eureka:  这个锁能够初步保证线程安全，但没有实现重入锁，即当两个方法相互调用时会出现一直等待的情况
  *******************************************************************************/
 
-public class MyLockReenter implements Lock {
+public class MyLock implements Lock {
 
     private boolean isLocked = false;
 
-    Thread lockBy = null;
-
-    int lockCount = 0;
-
     @Override
     public synchronized void lock() {
-
-        Thread cunrrent = Thread.currentThread();
-
-        while (isLocked && cunrrent!=lockBy) {
+        //这里要使用while不能使用if，使用if不能绝对保证线程安全
+        while (isLocked) {
             try {
                 wait();//进入等待
             } catch (InterruptedException e) {
@@ -37,24 +31,14 @@ public class MyLockReenter implements Lock {
         }
 
         isLocked = true;
-        lockBy = cunrrent;
-        lockCount++;
     }
 
     @Override
     public synchronized void unlock() {
 
-        if (lockBy == Thread.currentThread()) {
-            lockCount--;
-
-            if (lockCount == 0) {
-                notify();//唤醒其他线程
-                isLocked = false;
-            }
-        }
+        isLocked = false;
+        notify();//唤醒其他线程
     }
-
-
     @Override
     public void lockInterruptibly() throws InterruptedException {
 

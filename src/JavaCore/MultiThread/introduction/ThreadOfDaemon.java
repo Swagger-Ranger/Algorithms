@@ -39,7 +39,7 @@ public class ThreadOfDaemon extends Thread {
         d1.start();
         d2.start();
 
-        //这里主线程必须sleep 参能看到daemon线程的打印，不然daemon线程在后台执行还未打印，主线程就会执行完成并退出
+        //这里主线程必须sleep 才能看到daemon线程的打印，不然daemon线程在后台执行还未打印，主线程就会执行完成并退出
         Thread.sleep(2000);
     }
 }

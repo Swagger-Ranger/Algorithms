@@ -1,6 +1,5 @@
 package JavaCore.MultiThread.advanced.Lock.ReadWriteLock;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;

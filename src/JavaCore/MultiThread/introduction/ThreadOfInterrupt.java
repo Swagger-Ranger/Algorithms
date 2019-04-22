@@ -44,7 +44,7 @@ public class ThreadOfInterrupt extends Thread {
         //d1和d2会在主线程中几乎同时被启动起来，然后主线程也会继续执行后面的语句，即d1.interrupt();
         //也就是说，d1还未执行主线程就执行了interrupt停止了d1线程。如果线程中不加sleep，而在主线程中加sleep则会看到d1的执行打印
 //        Thread.sleep(1000);
-        d1.interrupt();
+//        d1.interrupt();
 
         /**
          * （1）interrupt：在当前线程打一个停止标记，并不是真的停止线程。
@@ -55,9 +55,9 @@ public class ThreadOfInterrupt extends Thread {
          * is stopped 1 ?: true
          * is stopped 2 ?: false
          */
-        /*Thread.currentThread().interrupt();
-        System.out.println("is stopped 1 ?: "+Thread.interrupted());
-        System.out.println("is stopped 2 ?: "+Thread.interrupted());
-        System.out.println("end!");*/
+        Thread.currentThread().interrupt();
+//        System.out.println("is stopped 1 ?: "+Thread.interrupted());
+//        System.out.println("is stopped 2 ?: "+Thread.interrupted());
+        System.out.println("end!");
     }
 }

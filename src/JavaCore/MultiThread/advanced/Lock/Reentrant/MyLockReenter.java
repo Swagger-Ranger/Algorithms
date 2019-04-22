@@ -1,4 +1,4 @@
-package JavaCore.MultiThread.advanced.Lock;
+package JavaCore.MultiThread.advanced.Lock.Reentrant;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -12,17 +12,27 @@ import java.util.concurrent.locks.Lock;
  * @Author: liufei32@outlook.com
  * @Date: 2019/3/8 12:53
  * @Description: 使用synchronized关键字来实现Lock接口，一个自定义的锁
- * @Aha-eureka:  这个锁能够初步保证线程安全，但没有实现重入锁，即当两个方法相互调用时会出现一直等待的情况
+ * @Aha-eureka:  实现一个可重入的锁,重入锁实现可重入性原理或机制是：
+ *               每一个锁关联一个线程持有者和计数器，当计数器为 0 时表示该锁没有被任何线程持有，那么任何线程都可能获得该锁而调用相应的方法；
+ *               当某一线程请求成功后，JVM会记下锁的持有线程，并且将计数器置为 1；此时其它线程请求该锁，则必须等待；
+ *               而该持有锁的线程如果再次请求这个锁，就可以再次拿到这个锁，同时计数器会递增；
+ *               当线程退出同步代码块时，计数器会递减，如果计数器为 0，则释放该锁。
  *******************************************************************************/
 
-public class MyLock implements Lock {
+public class MyLockReenter implements Lock {
 
     private boolean isLocked = false;
 
+    Thread lockBy = null;
+
+    int lockCount = 0;
+
     @Override
     public synchronized void lock() {
-        //这里要使用while不能使用if，使用if不能绝对保证线程安全
-        while (isLocked) {
+
+        Thread cunrrent = Thread.currentThread();
+
+        while (isLocked && cunrrent!=lockBy) {
             try {
                 wait();//进入等待
             } catch (InterruptedException e) {
@@ -31,14 +41,24 @@ public class MyLock implements Lock {
         }
 
         isLocked = true;
+        lockBy = cunrrent;
+        lockCount++;
     }
 
     @Override
     public synchronized void unlock() {
 
-        isLocked = false;
-        notify();//唤醒其他线程
+        if (lockBy == Thread.currentThread()) {
+            lockCount--;
+
+            if (lockCount == 0) {
+                notify();//唤醒其他线程
+                isLocked = false;
+            }
+        }
     }
+
+
     @Override
     public void lockInterruptibly() throws InterruptedException {
 
