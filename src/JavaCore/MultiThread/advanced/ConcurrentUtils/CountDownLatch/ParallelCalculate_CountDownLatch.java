@@ -107,7 +107,6 @@ public class ParallelCalculate_CountDownLatch {
 
         System.out.println(Thread.activeCount());
 
-        //这里注意，run执行默认就要两个线程即除去主线程还有一个线程，所以要>2，原因还未可知，但debug就只有一个线程
         try {
             latch.await();
         } catch (InterruptedException e) {

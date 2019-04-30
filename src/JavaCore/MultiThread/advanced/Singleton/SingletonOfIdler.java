@@ -1,5 +1,7 @@
 package JavaCore.MultiThread.advanced.Singleton;
 
+import java.io.*;
+
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
  * @FileName: SingletonOfIdler
@@ -9,11 +11,22 @@ package JavaCore.MultiThread.advanced.Singleton;
  * @Aha-eureka:  懒汉式单例模式存在线程安全性问题，因为实例化并不是原子性操作
  *******************************************************************************/
 
-public class SingletonOfIdler {
-
-    private SingletonOfIdler() { }
+public class SingletonOfIdler implements Serializable{
 
     private static volatile SingletonOfIdler instance;
+
+    private SingletonOfIdler() {
+        //防止通过反射来破坏单例
+        if (instance != null) throw new RuntimeException("Singleton have existed!");
+    }
+
+
+    /**
+     * 防止通过序列化（即先将对象写入文件，然后再从文件中读出对象，单读出的对象是个新建的对象）破坏单例
+     * 如果定义了readResolve()方法则直接返回此方法指定的对象，而不需要单独创建新对象
+     * 这个方法需要和implements Serializable 对应，如果不实现序列化则用不到这个
+     */
+    private Object readResolve() throws ObjectStreamException { return instance; }
 
 
     //不加线程安全的操作
@@ -79,13 +92,23 @@ public class SingletonOfIdler {
          * pool-1-thread-2:JavaCore.MultiThread.advanced.Singleton.SingletonOfIdler@6c526acc
          */
         SingletonOfIdler s1 = SingletonOfIdler.getInstance();
-        SingletonOfIdler s2 = SingletonOfIdler.getInstance();
-        SingletonOfIdler s3 = SingletonOfIdler.getInstance();
-        SingletonOfIdler s4 = SingletonOfIdler.getInstance();
-
         System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s4);
+
+        //序列化测试
+        try (
+                FileOutputStream fos = new FileOutputStream("D:\\Swagger-Ranger\\a.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D:\\Swagger-Ranger\\a.txt"))
+        ) {
+            oos.writeObject(s1);
+            SingletonOfIdler s5 = (SingletonOfIdler) ois.readObject();
+            System.out.println(s5);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
