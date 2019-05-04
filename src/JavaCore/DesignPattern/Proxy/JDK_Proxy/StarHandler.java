@@ -35,6 +35,7 @@ public class StarHandler implements InvocationHandler {
 		//这里调用真正的方法，即传入的实际执行的类
 		if(method.getName().equals("sing")){
 			//这里是使用了reflect包中的Method类的invoke方法，由Method对象method来在realStar对象上调用args
+			//比如Proxy实例调用方法m，args就是m，然后在此method调用realStar的对应m方法
 			object = method.invoke(realStar, args);
 		}
 		
