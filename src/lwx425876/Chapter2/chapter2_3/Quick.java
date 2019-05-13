@@ -1,14 +1,6 @@
 package lwx425876.Chapter2.chapter2_3;
 
 /******************************************************************************
- *  Compilation:  javac Quick.java
- *  Execution:    java Quick < input.txt
- *  Dependencies: StdOut.java StdIn.java
- *  Data files:   https://algs4.cs.princeton.edu/23quicksort/tiny.txt
- *                https://algs4.cs.princeton.edu/23quicksort/words3.txt
- *
- *  Sorts a sequence of strings from standard input using quicksort.
- *
  *  % more tiny.txt
  *  S O R T E X A M P L E
  *
@@ -20,12 +12,6 @@ package lwx425876.Chapter2.chapter2_3;
  *
  *  % java Quick < words3.txt
  *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
- *
- *
- *  Remark: For a type-safe version that uses static generics, see
- *
- *    https://algs4.cs.princeton.edu/23quicksort/QuickPedantic.java
- *
  ******************************************************************************/
 
 import algs4_lib.StdIn;
@@ -33,15 +19,10 @@ import algs4_lib.StdOut;
 import algs4_lib.StdRandom;
 
 /**
- *  The {@code Quick} class provides static methods for sorting an
- *  array and selecting the ith smallest element in an array using quicksort.
- *  <p>
- *  For additional documentation,
- *  see <a href="https://algs4.cs.princeton.edu/23quick">Section 2.3</a> of
- *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *
- *  @author Robert Sedgewick
- *  @author Kevin Wayne
+ * 快速排序
+ * 快速排序的最坏运行情况是 O(n²)，比如说顺序数列的快排。
+ * 但它的平摊期望时间是 O(nlogn)，且 O(nlogn) 记号中隐含的常数因子很小，比复杂度稳定等于 O(nlogn) 的归并排序要小很多。
+ * 所以，对绝大多数顺序性较弱的随机数列而言，快速排序总是优于归并排序
  */
 public class Quick {
 
@@ -49,8 +30,7 @@ public class Quick {
     private Quick() { }
 
     /**
-     * Rearranges the array in ascending order, using the natural order.
-     * @param a the array to be sorted
+     * 快速排序是一种随机算法，所以为了保证最差的情况出现，所以先将数组随机打乱
      */
     public static void sort(Comparable[] a) {
         StdRandom.shuffle(a);
@@ -69,10 +49,21 @@ public class Quick {
 
     // partition the subarray a[lo..hi] so that a[lo..j-1] <= a[j] <= a[j+1..hi]
     // and return the index j.
+
+    /**
+     * 找到切分点，即锚点pivot，使得锚点之前的数都小于它，之后的数都大于它。然后返回锚点的位置
+     * @param a
+     * @param lo
+     * @param hi
+     * @return
+     */
     private static int partition(Comparable[] a, int lo, int hi) {
         int i = lo;
         int j = hi + 1;
         Comparable v = a[lo];
+
+        //每次循环就是在从小到大找到比a[lo]大的i--和---从大到小找比a[lo]小的j，然后交换者两个ij
+        //如果ij相遇就退出
         while (true) {
 
             // find item on lo to swap
@@ -91,7 +82,7 @@ public class Quick {
             exch(a, i, j);
         }
 
-        // put partitioning item v at a[j]
+        // put partitioning item v at a[j]，交换比较位置的元素和锚点位置的元素
         exch(a, lo, j);
 
         // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
