@@ -14,5 +14,10 @@ public class TestMain {
 
         Predicate<Integer> atLeast5 = x -> x > 5;
         System.out.println(atLeast5.test(4));
+
+        FunctionTest test = () -> System.out.println("sssssssssss");
+        test.test();
     }
+
+
 }
