@@ -17,7 +17,7 @@ import java.io.IOException;
 public class IO_FileWriter {
 
     public static void main( String[] args ) throws IOException {
-        /*try (
+        try (
                 //创建输入流对象
                 FileReader fr = new FileReader("./src/JavaCore/IO/FIS.txt");
                 //创建输出流对象
@@ -34,7 +34,7 @@ public class IO_FileWriter {
             }
         } catch (IOException e) {
             System.out.println(e);
-        }*/
+        }
 
         //创建输入流对象
         FileReader fr = new FileReader("./src/JavaCore/IO/FIS.txt");

@@ -1,9 +1,10 @@
 package JavaCore.Lambdas;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 /*******************************************************************************
- * @Copyright (C), 2018-2019,github:Swagger-Ranger 
+ * @Copyright (C), 2018-2019,github:Swagger-Ranger
  * @FileName: LambdaOfConsumer
  * @Author: liufei32@outlook.com
  * @Date: 2019/3/7 14:52
@@ -23,6 +24,7 @@ public class LambdaOfConsumer {
 
         //连续执行F的Accept方法
         f.andThen(f).andThen(f).andThen(f).accept("test1");
+        ArrayList a = new ArrayList();
     }
 
     public static void main( String[] args ) {

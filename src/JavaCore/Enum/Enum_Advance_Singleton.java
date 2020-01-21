@@ -21,4 +21,10 @@ public enum Enum_Advance_Singleton {
 
     public String getName() { return name; }
     public void setName( String name ) { this.name = name; }
+
+    public static void main( String[] args ) {
+        System.out.println(Enum_Advance_Singleton.INSTANCE);
+        Enum_Advance_Singleton.INSTANCE.setName("Swagger-Ranger");
+        System.out.println(Enum_Advance_Singleton.INSTANCE.getName());
+    }
 }

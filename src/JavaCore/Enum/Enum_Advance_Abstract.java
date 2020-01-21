@@ -6,7 +6,7 @@ package JavaCore.Enum;
 
 public enum Enum_Advance_Abstract {
 
-    FLY{
+    FLY {
         @Override
         public String action() {
             return "I CAN FLY";

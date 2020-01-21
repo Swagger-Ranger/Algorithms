@@ -2,6 +2,7 @@ package JavaCore.IO;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.function.Consumer;
 
 /*******************************************************************************
  * @Copyright (C), 2018-2019,github:Swagger-Ranger 
@@ -64,6 +65,14 @@ public class IO_FileInputStream {
     public static void main( String[] args ) throws IOException {
         IO_FileInputStream iofis = new IO_FileInputStream();
         iofis.fis_arrayBuff("./src/JavaCore/IO/FIS.txt");
+
+        Integer test = 1;
+
+    }
+
+    static void Test( Consumer comsumer ) {
+
+        comsumer.accept(comsumer);
 
     }
 }

@@ -4,6 +4,8 @@ import algs4_lib.In;
 import algs4_lib.Queue;
 import algs4_lib.StdOut;
 
+import java.net.http.HttpClient;
+
 /*************************************************************************
  *  Compilation:  javac KosarajuSCC.java
  *  Execution:    java KosarajuSCC filename.txt
@@ -116,4 +118,38 @@ public class KosarajuSCC {
 
     }
 
+
+
+//    public  void test() {
+//        try {
+//            HttpServletResponse response = ServletActionContext.getResponse();
+//            //设置返回数据的编码类型
+//            response.setCharacterEncoding("GBK");
+//            String xml = "-<-?-xml -version=-"1.0-" -encoding=-" gb2312 - " -?->" +
+//                    "-<-ddd->-";
+//            //里面若干XML数据,格式自己改下，被过滤了加些东西
+//
+//            String url = "请求地址";
+//            HttpClient client = new HttpClient();
+//            //设置代理服务器地址和端口
+//            //client.getHostConfiguration().setProxy("proxy_host_addr",proxy_port);
+//            //使用GET方法，如果服务器需要通过HTTPS连接，那只需要将下面URL中的http换成https
+//            //HttpMethod method = new GetMethod("http://java.sun.com");
+//            //使用POST方法
+//            PostMethod post = new PostMethod(url);
+//            //设置要发送请求的XML数据,这里还可以不用直接发送XML数据，可以设置参数
+//            //post.setParameter(key, value);
+//            post.setRequestEntity(new StringRequestEntity(xml, "text/xml", "GBK"));
+//            //执行请求
+//            client.executeMethod(post);
+//            //打印返回的信息
+//            byte[] by = post.getResponseBody();
+//            PrintWriter pw = response.getWriter();
+//            pw.print(new String(by));
+//            //释放连接
+//            post.releaseConnection();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

@@ -1,6 +1,7 @@
 package JavaCore;
 
 import java.io.*;
+import java.util.*;
 
 
 //example from http://www.runoob.com/java/java-files-io.html;
@@ -116,13 +117,46 @@ public class Test_IO {
 //        fileIO("./fileWrite.txt");
 //        mixFiles("C:\\CloudMusic\\Alan Walker - The Spectre.ncm","C:\\CloudMusic\\Alan Walker,K-391 - Ignite (Instrumental).ncm");
 
-        while (true) {
-            System.out.println("-------------------------");
-            if (true) {
-                System.out.println("fffffffffffff");
+//        while (true) {
+//            System.out.println("-------------------------");
+//            if (true) {
+//                System.out.println("fffffffffffff");
 //                break;
-                return;
+//                return;
+//            }
+//        }
+
+        String str = "Swag  ger";
+        System.out.println(str.intern());
+
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String item = iterator.next();
+            if ("2".equals(item)) {
+//                iterator.remove();//正确执行
+                list.remove(item);//抛出ConcurrentModificationException异常
+
             }
         }
+
+        //抛出java.util.ConcurrentModificationException异常,对Vector、ArrayList在迭代的时候如果同时对其进行修改就会抛出
+//        for (String item : list) {
+//            if ("2".equals(item)) {
+//                list.remove(item);
+//            }
+//        }
+        //仍然会抛出那个异常,原因就是forEach只是lambda表达式的语法糖,里面还是for循环.
+//        list.forEach(x -> {
+//            if ("2".equals(x)) {
+//                list.remove(x);
+//            }
+//        });
+        System.out.println(Arrays.toString(list.toArray()));
+
     }
+
+
 }

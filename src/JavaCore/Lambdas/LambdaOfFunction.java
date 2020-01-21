@@ -42,6 +42,7 @@ public class LambdaOfFunction {
     }
 
     public static void main( String[] args ) {
-        functionTest();
+//        functionTest();
+        System.out.println(2 % 1);
     }
 }

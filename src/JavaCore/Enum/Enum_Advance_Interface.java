@@ -7,8 +7,7 @@ package JavaCore.Enum;
 public enum Enum_Advance_Interface {
 
     REPTILIA(Run.reptilia.class),
-    BIRD(Run.birds.class)
-    ;
+    BIRD(Run.birds.class);
 
     private Run[] values;
 
